@@ -1,0 +1,30 @@
+.home {
+  width: 300px;
+  margin: 30px auto;
+  &__header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: center;
+    align-items: center;
+  }
+  &__form {
+    width: 100%;
+    &--title {
+      text-align: center;
+    }
+    &__containerSubmit {
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.inputLabel {
+  display: block;
+  margin: 10px 0;
+}
+
+fieldset {
+  margin: 10px 0;
+}

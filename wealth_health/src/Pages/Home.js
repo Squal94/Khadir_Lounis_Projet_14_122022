@@ -57,7 +57,7 @@ const Home = () => {
             />
           </div>
           <fieldset>
-            <legend>Address</legend>
+            <legend className="inputLabel">Address</legend>
             <div className="home__form__street">
               <label className="inputLabel">Street</label>
               <input
@@ -99,6 +99,7 @@ const Home = () => {
             <select
               name="department"
               id="department"
+              className="inputLabel"
               // ref={department}
             >
               <option value="">--Choose an option--</option>
@@ -112,8 +113,13 @@ const Home = () => {
           <span className="formContainer--error">
             {error && "Email ou mot de passe incorrect"}
           </span>
-
-          <input type="submit" className="home__form__submit" value="Save" />
+          <div className="home__form__containerSubmit">
+            <input
+              type="submit"
+              className="home__form__containerSubmit--submit"
+              value="Save"
+            />
+          </div>
         </form>
       </div>
     </div>
