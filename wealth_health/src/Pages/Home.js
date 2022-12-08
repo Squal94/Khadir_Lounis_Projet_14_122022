@@ -3,6 +3,35 @@ import { NavLink } from "react-router-dom";
 
 const Home = () => {
   const [error, setError] = useState(false);
+
+  // function saveEmployee() {
+  //   const firstName = document.getElementById("firstName");
+  //   const lastName = document.getElementById("lastName");
+  //   const dateOfBirth = document.getElementById("birthday");
+  //   const startDate = document.getElementById("beginning");
+  //   const department = document.getElementById("department");
+  //   const street = document.getElementById("street");
+  //   const city = document.getElementById("city");
+  //   // const state = document.getElementById("state");
+  //   const zipCode = document.getElementById("zipCode");
+
+  //   const employees = JSON.parse(localStorage.getItem("employees")) || [];
+  //   const employee = {
+  //     firstName: firstName.value,
+  //     lastName: lastName.value,
+  //     dateOfBirth: dateOfBirth.value,
+  //     startDate: startDate.value,
+  //     department: department.value,
+  //     street: street.value,
+  //     city: city.value,
+  //     // state: state.value,
+  //     zipCode: zipCode.value,
+  //   };
+  //   employees.push(employee);
+  //   localStorage.setItem("employees", JSON.stringify(employees));
+  //   // $("#confirmation").modal();
+  // }
+
   return (
     <div className="home">
       <div className="home__header">
@@ -115,6 +144,7 @@ const Home = () => {
           </span>
           <div className="home__form__containerSubmit">
             <input
+              // onClick={saveEmployee()}
               type="submit"
               className="home__form__containerSubmit--submit"
               value="Save"
