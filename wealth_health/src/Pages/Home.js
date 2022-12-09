@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { newEmployee } from "./../Features/post.slice";
+import dataEmployee from "./../Assets/Data.json";
 
 const Home = () => {
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
+  const last = dataEmployee.length - 1;
+  console.log(last);
 
   const saveEmployee = (e) => {
     e.preventDefault();
@@ -22,6 +25,7 @@ const Home = () => {
 
     // const employees = JSON.parse(localStorage.getItem("employees")) || [];
     const employee = {
+      id: last + 2,
       firstName: firstName.value,
       lastName: lastName.value,
       dateOfBirth: dateOfBirth.value,

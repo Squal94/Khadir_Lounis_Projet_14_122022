@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import dataEmployee from "./../Assets/Data.json";
 
 const initialState = [...dataEmployee];
@@ -10,11 +10,11 @@ export const employeeSlice = createSlice({
   name: "employee",
   initialState: initialState,
   reducers: {
-    newEmployee: (state = initialState, action) => {
+    newEmployee: (state = [...initialState], action) => {
       console.log(action);
-      console.log(state);
+      //   console.log(console.log(current(state)));
       state.push(action.payload);
-      const test = [...state];
+      const test = [...current(state)];
       console.log(test);
 
       //   state.auth.Logged = !state.auth.Logged;
