@@ -8,7 +8,6 @@ const Home = () => {
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const last = dataEmployee.length - 1;
-  console.log(last);
 
   const saveEmployee = (e) => {
     e.preventDefault();
@@ -28,8 +27,8 @@ const Home = () => {
       id: last + 2,
       firstName: firstName.value,
       lastName: lastName.value,
-      dateOfBirth: dateOfBirth.value,
-      startDate: startDate.value,
+      birthday: dateOfBirth.value,
+      beginning: startDate.value,
       department: department.value,
       street: street.value,
       city: city.value,
