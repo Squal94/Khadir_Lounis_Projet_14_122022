@@ -3,6 +3,6 @@ import Reducer from "../Features/post.slice";
 
 export default configureStore({
   reducer: {
-    user: Reducer,
+    employee: Reducer,
   },
 });
