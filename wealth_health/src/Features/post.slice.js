@@ -1,19 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dataEmployee from "./../Assets/Data.json";
 
-const initialState = dataEmployee;
+const initialState = [...dataEmployee];
+// console.log(initialState);
 
 // // Reducers An action is a useful package of information that contains a type like login logout or infoUser. The actions are distributed from the components. It sends the data of your React component to your Redux store.
 
-export const usersSlice = createSlice({
+export const employeeSlice = createSlice({
   name: "employee",
   initialState: initialState,
   reducers: {
-    newEmployee: (state, action) => {
+    newEmployee: (state = initialState, action) => {
       console.log(action);
-      state.auth.Logged = !state.auth.Logged;
-      state.auth.Token = action.payload[0];
-      state.email = action.payload[1];
+      console.log(state);
+      state.push(action.payload);
+      const test = [...state];
+      console.log(test);
+
+      //   state.auth.Logged = !state.auth.Logged;
+      //   state.auth.Token = action.payload[0];
+      //   state.email = action.payload[1];
     },
     // logout: (state) => {
     //   // state.auth.Logged = !state.auth.Logged;
@@ -27,6 +33,6 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { login, logout, infoUser } = usersSlice.actions;
+export const { newEmployee } = employeeSlice.actions;
 
-export default usersSlice.reducer;
+export default employeeSlice.reducer;

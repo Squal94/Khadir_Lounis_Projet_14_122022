@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { newEmployee } from "./../Features/post.slice";
 
 const Home = () => {
   const [error, setError] = useState(false);
+  const dispatch = useDispatch();
 
   const saveEmployee = (e) => {
     e.preventDefault();
@@ -29,7 +32,8 @@ const Home = () => {
       // state: state.value,
       zipCode: zipCode.value,
     };
-    console.log(employee);
+    // console.log(employee);
+    dispatch(newEmployee(employee));
     // employees.push(employee);
     // localStorage.setItem("employees", JSON.stringify(employees));
     // $("#confirmation").modal();
