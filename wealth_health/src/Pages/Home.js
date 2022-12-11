@@ -22,7 +22,6 @@ const Home = () => {
     // const state = document.getElementById("state");
     const zipCode = document.getElementById("zipCode");
 
-    // const employees = JSON.parse(localStorage.getItem("employees")) || [];
     const employee = {
       id: last + 2,
       firstName: firstName.value,
@@ -137,7 +136,7 @@ const Home = () => {
             </div>
           </fieldset>
           <div className="home__form__department">
-            <label for="department">Department</label>
+            <label htmlFor="department">Department</label>
 
             <select
               name="department"

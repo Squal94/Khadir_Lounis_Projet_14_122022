@@ -12,10 +12,7 @@ export const employeeSlice = createSlice({
   reducers: {
     newEmployee: (state = [...initialState], action) => {
       console.log(action);
-      //   console.log(console.log(current(state)));
       state.push(action.payload);
-      const test = [...current(state)];
-      console.log(test);
 
       //   state.auth.Logged = !state.auth.Logged;
       //   state.auth.Token = action.payload[0];
