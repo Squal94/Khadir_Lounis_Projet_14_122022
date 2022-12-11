@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import arrowDown from "./../Assets/img/angle-arrow-down.png";
 
 const SelectItem = ({ props }) => {
+  const list = document.querySelector(".selectItem__list");
   const [option, setOption] = useState("");
   const [selected, setSelected] = useState(false);
-  // const selectField = document.getElementById("selectField");
+  const openList = () => {
+    list.classList.toggle("hide");
+  };
+
   // const selectText = document.getElementById("selectText");
   // let options = document.getElementsByClassName("selectItem__list--option");
   // for (option of options) {
@@ -12,7 +16,13 @@ const SelectItem = ({ props }) => {
   // }
   return (
     <div className="selectItem">
-      <div id="selectField" className="selectItem__field">
+      <div
+        id="selectField"
+        className="selectItem__field"
+        onClick={() => {
+          openList();
+        }}
+      >
         <p id="selectText">
           {selected === false ? "Select your choice" : option}
         </p>
@@ -22,7 +32,7 @@ const SelectItem = ({ props }) => {
           alt="Fleche ouverture du select"
         />
       </div>
-      <ul className="selectItem__list">
+      <ul className="selectItem__list hide">
         {props.map((unit) => (
           <li
             className="selectItem__list--option"
