@@ -13,6 +13,7 @@
     cursor: pointer;
     &--img {
       width: 15px;
+      transition: transform 0.3s ease-in-out;
     }
   }
   &__list {
@@ -37,4 +38,8 @@
 
 .hide {
   visibility: hidden;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }

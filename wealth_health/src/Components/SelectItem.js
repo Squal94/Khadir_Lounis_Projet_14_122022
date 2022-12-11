@@ -4,9 +4,16 @@ import arrowDown from "./../Assets/img/angle-arrow-down.png";
 const SelectItem = ({ props }) => {
   const [option, setOption] = useState("");
   const [selected, setSelected] = useState(false);
+
+  const toggleArrow = () => {
+    const arrow = document.querySelector(".selectItem__field--img");
+    arrow.classList.toggle("rotate");
+  };
+
   const toggleList = () => {
     const list = document.querySelector(".selectItem__list");
     list.classList.toggle("hide");
+    toggleArrow();
   };
 
   // const selectText = document.getElementById("selectText");
