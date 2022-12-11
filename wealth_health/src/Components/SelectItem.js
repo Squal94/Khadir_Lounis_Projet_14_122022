@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import arrowDown from "./../Assets/img/angle-arrow-down.png";
 
 const SelectItem = ({ props }) => {
+  const [option, setOption] = useState("");
+  const [selected, setSelected] = useState(false);
+  // const selectField = document.getElementById("selectField");
+  // const selectText = document.getElementById("selectText");
+  // let options = document.getElementsByClassName("selectItem__list--option");
+  // for (option of options) {
+  //   option.onclick();
+  // }
   return (
     <div className="selectItem">
       <div id="selectField" className="selectItem__field">
-        <p>Select choice</p>
+        <p id="selectText">
+          {selected === false ? "Select your choice" : option}
+        </p>
         <img
           className="selectItem__field--img"
           src={arrowDown}
@@ -14,8 +24,15 @@ const SelectItem = ({ props }) => {
       </div>
       <ul className="selectItem__list">
         {props.map((unit) => (
-          <li className="selectItem__list--option">
-            <p key={unit.abbreviation}>{unit.name}</p>
+          <li
+            className="selectItem__list--option"
+            onClick={() => {
+              setOption(unit.name);
+              setSelected(true);
+            }}
+            key={unit.abbreviation}
+          >
+            <p>{unit.name}</p>
           </li>
         ))}
       </ul>
