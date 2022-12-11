@@ -12,9 +12,9 @@ const SelectItem = ({ props }) => {
           alt="Fleche ouverture du select"
         />
       </div>
-      <ul>
+      <ul className="selectItem__list">
         {props.map((unit) => (
-          <li>
+          <li className="selectItem__list--option">
             <p key={unit.abbreviation}>{unit.name}</p>
           </li>
         ))}
