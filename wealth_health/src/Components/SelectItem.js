@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import arrowDown from "./../Assets/img/angle-arrow-down.png";
 
 const SelectItem = ({ props }) => {
-  const list = document.querySelector(".selectItem__list");
   const [option, setOption] = useState("");
   const [selected, setSelected] = useState(false);
-  const openList = () => {
+  const toggleList = () => {
+    const list = document.querySelector(".selectItem__list");
     list.classList.toggle("hide");
   };
 
@@ -20,7 +20,7 @@ const SelectItem = ({ props }) => {
         id="selectField"
         className="selectItem__field"
         onClick={() => {
-          openList();
+          toggleList();
         }}
       >
         <p id="selectText">
@@ -39,6 +39,7 @@ const SelectItem = ({ props }) => {
             onClick={() => {
               setOption(unit.name);
               setSelected(true);
+              toggleList();
             }}
             key={unit.abbreviation}
           >
