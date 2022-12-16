@@ -10,13 +10,13 @@ const DatePicker = (props) => {
   console.log(dateValue);
 
   return (
-    <div>
-      <label className="inputLabel">{dateTitle}</label>
+    <div className="datePicker">
+      <label className="datePicker__label">{dateTitle}</label>
       <input
-        className="inputTexte"
+        placeholder=" "
+        className="datePicker__input"
         type="date"
         id={dateTitle.replace(/ /g, "")}
-        //   ref={beginning}
         required
         onChange={(e) => setDateValue(e.target.value)}
       />
