@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { newEmployee } from "../Features/employee.slice";
 import dataEmployee from "./../Assets/Data.json";
 import ModalSubmit from "../Components/ModalSubmit";
+import { open } from "../Features/modal.slice";
 
 const Home = () => {
   const [error, setError] = useState(false);
-  const [modal, setModal] = useState(false);
+  const openModal = useSelector((state) => state.modal.isOpened);
   const dispatch = useDispatch();
   const last = dataEmployee.length - 1;
 
@@ -39,6 +40,7 @@ const Home = () => {
 
     dispatch(newEmployee(employee));
   };
+  console.log(openModal);
 
   return (
     <div>
@@ -54,7 +56,7 @@ const Home = () => {
           <form
             onSubmit={(e) => {
               saveEmployee(e);
-              setModal(true);
+              dispatch(open());
             }}
           >
             <div className="home__form__firstName">
@@ -166,7 +168,7 @@ const Home = () => {
           </form>
         </div>
       </div>
-      {modal && <ModalSubmit />}
+      {openModal === true && <ModalSubmit />}
     </div>
   );
 };
