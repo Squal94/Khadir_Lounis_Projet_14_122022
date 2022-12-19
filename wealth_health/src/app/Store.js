@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import Reducer from "../Features/post.slice";
+import employeeReducer from "../Features/employee.slice";
+import modalReducer from "../Features/modal.slice";
+import arrayReducer from "../Features/array.slice";
 
 export default configureStore({
   reducer: {
-    employee: Reducer,
+    employee: employeeReducer,
+    modal: modalReducer,
+    array: arrayReducer,
   },
 });
