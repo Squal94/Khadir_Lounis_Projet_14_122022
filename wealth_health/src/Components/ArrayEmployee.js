@@ -12,20 +12,77 @@ const ArrayEmployee = () => {
         <thead>
           <tr>
             <th
-              onClick={() => {
-                dispatch(sortTest());
+              id="columnFirst"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
               }}
             >
               First Name
             </th>
-            <th>Last Name</th>
-            <th>Start Date</th>
-            <th>Departement</th>
-            <th>Date of Birth</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
+            <th
+              id="columnLast"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              Last Name
+            </th>
+            <th
+              id="columnStart"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              Start Date
+            </th>
+            <th
+              id="columnDepartement"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              Departement
+            </th>
+            <th
+              id="columnBirth"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              Date of Birth
+            </th>
+            <th
+              id="columnStreet"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              Street
+            </th>
+            <th
+              id="columnCity"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              City
+            </th>
+            <th
+              id="columnState"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              State
+            </th>
+            <th
+              id="columnZip"
+              onClick={(e) => {
+                dispatch(sortTest(e.target.id));
+              }}
+            >
+              Zip Code
+            </th>
             <th></th>
           </tr>
         </thead>
