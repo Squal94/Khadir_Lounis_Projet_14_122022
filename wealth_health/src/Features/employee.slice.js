@@ -16,9 +16,26 @@ export const employeeSlice = createSlice({
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
     sortTest: (state, action) => {
-      state.sort(function (a, b) {
-        return a.zipCode - b.zipCode;
-      });
+      let toggle = true;
+      let arrow = true;
+      if (toggle === true) {
+        state.sort(function (a, b) {
+          toggle = !toggle;
+          arrow = !arrow;
+          console.log(arrow);
+          console.log(toggle);
+          return a.zipCode - b.zipCode;
+        });
+      }
+      if (toggle === false) {
+        state.sort(function (a, b) {
+          toggle = !toggle;
+          arrow = !arrow;
+          console.log(arrow);
+          console.log(toggle);
+          return b.zipCode - a.zipCode;
+        });
+      }
     },
     // logout: (state) => {
     //   // state.auth.Logged = !state.auth.Logged;
