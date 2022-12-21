@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ArrayEmployee from "../Components/ArrayEmployee";
-import { test } from "../Features/array.slice";
+// import array from "../Features/array.slice";
 // import ModalSubmit from "../Components/ModalSubmit";
 // import SelectItem from "../Components/SelectItem";
 // import states from "../Assets/stateData";
@@ -9,8 +9,9 @@ import { test } from "../Features/array.slice";
 
 const Employee = () => {
   const dispatch = useDispatch;
+  const testvalue = useSelector((state) => state.array);
+  console.log(testvalue);
 
-  dispatch(test());
   return (
     <div>
       {/* <h1>Je suis employee</h1>

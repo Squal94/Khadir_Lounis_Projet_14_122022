@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { sortTest } from "./../Features/employee.slice";
 
 const ArrayEmployee = () => {
   const dataStoreEmployee = useSelector((state) => state.employee);
@@ -10,7 +11,13 @@ const ArrayEmployee = () => {
       <table>
         <thead>
           <tr>
-            <th>First Name</th>
+            <th
+              onClick={() => {
+                dispatch(sortTest());
+              }}
+            >
+              First Name
+            </th>
             <th>Last Name</th>
             <th>Start Date</th>
             <th>Departement</th>

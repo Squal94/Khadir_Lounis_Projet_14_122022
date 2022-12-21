@@ -1,20 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Store from "./../app/Store";
-import store from "./../app/Store";
+// import Store from "../app/Store";
 
 // const reduxStore = store.getState();
 // const array = reduxStore.employee;
-const initialState = [];
+const initialState = ["test", "test2"];
 
 export const arraySlice = createSlice({
   name: "array",
   initialState: initialState,
   reducers: {
-    test: (state) => {
-      // const reduxStore = store.getState();
+    test: (state = [...initialState]) => {
+      // const reduxStore = Store.getState();
       // const array = reduxStore.employee;
-      // state.push(...array);
-      console.log(Store);
+
+      return state;
     },
   },
 });

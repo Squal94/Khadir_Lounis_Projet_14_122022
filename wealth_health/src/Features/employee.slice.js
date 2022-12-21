@@ -13,6 +13,13 @@ export const employeeSlice = createSlice({
       state.push(action.payload);
       console.log(current(state));
     },
+    deleteEmployee: (state, action) => {},
+    editEmployee: (state, action) => {},
+    sortTest: (state, action) => {
+      state.sort(function (a, b) {
+        return a.zipCode - b.zipCode;
+      });
+    },
     // logout: (state) => {
     //   // state.auth.Logged = !state.auth.Logged;
     //   state = initialState();
@@ -25,6 +32,6 @@ export const employeeSlice = createSlice({
   },
 });
 
-export const { newEmployee } = employeeSlice.actions;
+export const { newEmployee, sortTest } = employeeSlice.actions;
 
 export default employeeSlice.reducer;

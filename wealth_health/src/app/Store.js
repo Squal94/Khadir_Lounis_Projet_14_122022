@@ -6,7 +6,7 @@ import arrayReducer from "../Features/array.slice";
 export default configureStore({
   reducer: {
     employee: employeeReducer,
-    modal: modalReducer,
     array: arrayReducer,
+    modal: modalReducer,
   },
 });
