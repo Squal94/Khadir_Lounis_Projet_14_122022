@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import employeeReducer from "../Features/employee.slice";
+import employeeReducer from "../Features/editArrayEmployee.slice";
 import modalReducer from "../Features/modal.slice";
-import arrayReducer from "../Features/array.slice";
+import arrayReducer from "../Features/arrayOption.slice";
 
 export default configureStore({
   reducer: {
