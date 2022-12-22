@@ -1,9 +1,12 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import dataEmployee from "../Assets/Data.json";
 
-const initialState = [...dataEmployee];
 let toggle = true;
-let arrow = true;
+const initialState = {
+  data: [...dataEmployee],
+  arrow: true,
+};
+
 // console.log(initialState);
 // current
 
@@ -17,10 +20,12 @@ export const editArrayContent = createSlice({
     },
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
-    sortTest: (state, action) => {
+    searchEmployee: (state, action) => {},
+    sortEmployee: (state, action) => {
       if (toggle) {
+        state.arrow = false;
         // eslint-disable-next-line array-callback-return
-        state.sort((a, b) => {
+        state.data.sort((a, b) => {
           switch (action.payload) {
             case "columnFirst":
               if (a.firstName > b.firstName) {
@@ -74,11 +79,11 @@ export const editArrayContent = createSlice({
           }
         });
         toggle = !toggle;
-        arrow = !arrow;
-        console.log(arrow);
+        // console.log(arrow);
       } else {
+        state.arrow = true;
         // eslint-disable-next-line array-callback-return
-        state.sort((a, b) => {
+        state.data.sort((a, b) => {
           switch (action.payload) {
             case "columnFirst":
               if (b.firstName > a.firstName) {
@@ -132,8 +137,6 @@ export const editArrayContent = createSlice({
           }
         });
         toggle = !toggle;
-        arrow = !arrow;
-        console.log(arrow);
       }
     },
     // logout: (state) => {
@@ -148,6 +151,6 @@ export const editArrayContent = createSlice({
   },
 });
 
-export const { newEmployee, sortTest } = editArrayContent.actions;
+export const { newEmployee, sortEmployee } = editArrayContent.actions;
 
 export default editArrayContent.reducer;

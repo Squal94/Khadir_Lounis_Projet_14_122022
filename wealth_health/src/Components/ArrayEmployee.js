@@ -1,9 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sortTest } from "../Features/editArrayContent.slice";
+import { sortEmployee } from "../Features/editArrayContent.slice";
 
 const ArrayEmployee = () => {
-  const dataStoreEmployee = useSelector((state) => state.employee);
+  const dataStoreEmployee = useSelector((state) => state.employee.data);
+  const arrowSelector = useSelector((state) => state.employee.arrow);
+  //   (state) => state.employee.sortEmployee.arrow
+  // );
   const dispatch = useDispatch();
   //   console.log(dataStoreEmployee);
   return (
@@ -14,7 +17,8 @@ const ArrayEmployee = () => {
             <th
               id="columnFirst"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
+                console.log(arrowSelector);
               }}
             >
               First Name
@@ -22,7 +26,7 @@ const ArrayEmployee = () => {
             <th
               id="columnLast"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               Last Name
@@ -30,7 +34,7 @@ const ArrayEmployee = () => {
             <th
               id="columnStart"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               Start Date
@@ -38,7 +42,7 @@ const ArrayEmployee = () => {
             <th
               id="columnDepartement"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               Departement
@@ -46,7 +50,7 @@ const ArrayEmployee = () => {
             <th
               id="columnBirth"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               Date of Birth
@@ -54,7 +58,7 @@ const ArrayEmployee = () => {
             <th
               id="columnStreet"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               Street
@@ -62,7 +66,7 @@ const ArrayEmployee = () => {
             <th
               id="columnCity"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               City
@@ -70,7 +74,7 @@ const ArrayEmployee = () => {
             <th
               id="columnState"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               State
@@ -78,7 +82,7 @@ const ArrayEmployee = () => {
             <th
               id="columnZip"
               onClick={(e) => {
-                dispatch(sortTest(e.target.id));
+                dispatch(sortEmployee(e.target.id));
               }}
             >
               Zip Code
