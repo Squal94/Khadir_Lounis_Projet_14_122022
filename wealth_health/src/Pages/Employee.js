@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ArrayEmployee from "../Components/ArrayEmployee";
+import Arrow from "../Components/Arrow";
 // import array from "../Features/array.slice";
 // import ModalSubmit from "../Components/ModalSubmit";
 // import SelectItem from "../Components/SelectItem";
@@ -17,7 +18,8 @@ const Employee = () => {
       {/* <h1>Je suis employee</h1>
       <SelectItem props={states} />
       <DatePicker title={"Date of Birth"} /> */}
-      <ArrayEmployee />
+      {/* <ArrayEmployee /> */}
+      <Arrow />
     </div>
   );
 };
