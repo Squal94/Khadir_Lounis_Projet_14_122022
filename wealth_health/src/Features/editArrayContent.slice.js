@@ -7,7 +7,7 @@ let arrow = true;
 // console.log(initialState);
 // current
 
-export const editArrayEmployee = createSlice({
+export const editArrayContent = createSlice({
   name: "employee",
   initialState: initialState,
   reducers: {
@@ -148,6 +148,6 @@ export const editArrayEmployee = createSlice({
   },
 });
 
-export const { newEmployee, sortTest } = editArrayEmployee.actions;
+export const { newEmployee, sortTest } = editArrayContent.actions;
 
-export default editArrayEmployee.reducer;
+export default editArrayContent.reducer;

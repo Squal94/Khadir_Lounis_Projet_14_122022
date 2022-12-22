@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sortTest } from "./../Features/editArrayEmployee.slice";
+import { sortTest } from "../Features/editArrayContent.slice";
 
 const ArrayEmployee = () => {
   const dataStoreEmployee = useSelector((state) => state.employee);

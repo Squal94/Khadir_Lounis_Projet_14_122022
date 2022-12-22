@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { newEmployee } from "../Features/editArrayEmployee.slice";
+import { newEmployee } from "../Features/editArrayContent.slice";
 import dataEmployee from "./../Assets/Data.json";
 import ModalSubmit from "../Components/ModalSubmit";
 import { open } from "../Features/modal.slice";
