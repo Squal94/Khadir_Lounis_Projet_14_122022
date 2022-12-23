@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sortEmployee } from "../Features/editArrayContent.slice";
-import { searchEmployee } from "./../Features/editArrayContent.slice";
+// import { searchEmployee } from "./../Features/editArrayContent.slice";
 import Arrow from "./Arrow";
 
 const ArrayEmployee = () => {
-  let dataStoreEmployee = useSelector((state) => state.employee.data);
+  let dataStoreEmployee = useSelector(
+    (state) => state.employee.filterEmployees
+  );
   console.log(dataStoreEmployee);
   const arrowSelector = useSelector((state) => state.employee.arrow);
   const arrowselectAll = document.querySelectorAll(".thForme");
@@ -45,7 +47,7 @@ const ArrayEmployee = () => {
   }
   return (
     <div className="arrayContainer">
-      <div className="searchContainer">
+      {/* <div className="searchContainer">
         <label> Search :</label>
         <input
           type="text"
@@ -54,7 +56,7 @@ const ArrayEmployee = () => {
             dispatch(searchEmployee(e.target.value));
           }}
         />
-      </div>
+      </div> */}
       <table>
         <thead>
           <tr>

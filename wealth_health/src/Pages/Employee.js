@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import ArrayEmployee from "../Components/ArrayEmployee";
 import SearchArray from "../Components/SearchArray";
 // import Arrow from "../Components/Arrow";
@@ -19,7 +19,7 @@ const Employee = () => {
       {/* <h1>Je suis employee</h1>
       <SelectItem props={states} />
       <DatePicker title={"Date of Birth"} /> */}
-      {/* <SearchArray /> */}
+      <SearchArray />
       <ArrayEmployee />
       {/* <Arrow /> */}
     </div>

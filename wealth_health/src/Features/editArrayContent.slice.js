@@ -2,8 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 import dataEmployee from "../Assets/Data.json";
 
 let toggle = true;
+const keys = [
+  "firstName",
+  // "lastName",
+  // "DateofBirth",
+  // "StartDate",
+  // "street",
+  // "city",
+  // "zipCode",
+];
 const initialState = {
   data: [...dataEmployee],
+  filterEmployees: [...dataEmployee],
+  searchTerm: "",
   arrow: true,
 };
 
@@ -16,6 +27,12 @@ export const editArrayContent = createSlice({
   reducers: {
     newEmployee: (state = [...initialState], action) => {
       state.data.push(action.payload);
+      state.filterEmployees = state.data.filter((employee) =>
+        keys.some((key) =>
+          employee[key].toLowerCase().includes(state.searchTerm)
+        )
+      );
+
       // console.log(current(state));
     },
     deleteEmployee: (state, action) => {},
@@ -23,16 +40,18 @@ export const editArrayContent = createSlice({
     searchEmployee: (state, action) => {
       // console.log(action.payload);
       // const backupState = state;
-      const keys = [
-        "firstName",
-        // "lastName",
-        // "DateofBirth",
-        // "StartDate",
-        // "street",
-        // "city",
-        // "zipCode",
-      ];
-      state.data = state.data.filter((employee) =>
+      state.searchTerm = action.payload;
+      // const employeeData = [...dataEmployee];
+      // const keys = [
+      //   "firstName",
+      //   // "lastName",
+      //   // "DateofBirth",
+      //   // "StartDate",
+      //   // "street",
+      //   // "city",
+      //   // "zipCode",
+      // ];
+      state.filterEmployees = state.data.filter((employee) =>
         keys.some((key) => employee[key].toLowerCase().includes(action.payload))
       );
 
@@ -63,7 +82,7 @@ export const editArrayContent = createSlice({
       if (toggle) {
         state.arrow = false;
         // eslint-disable-next-line array-callback-return
-        state.data.sort((a, b) => {
+        state.filterEmployees.sort((a, b) => {
           switch (action.payload) {
             case "columnFirst":
               if (a.firstName > b.firstName) {
@@ -121,7 +140,7 @@ export const editArrayContent = createSlice({
       } else {
         state.arrow = true;
         // eslint-disable-next-line array-callback-return
-        state.data.sort((a, b) => {
+        state.filterEmployees.sort((a, b) => {
           switch (action.payload) {
             case "columnFirst":
               if (b.firstName > a.firstName) {
