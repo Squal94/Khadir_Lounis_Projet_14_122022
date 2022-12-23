@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import dataEmployee from "../Assets/Data.json";
 
 let toggle = true;
@@ -15,12 +15,50 @@ export const editArrayContent = createSlice({
   initialState: initialState,
   reducers: {
     newEmployee: (state = [...initialState], action) => {
-      state.push(action.payload);
-      console.log(current(state));
+      state.data.push(action.payload);
+      // console.log(current(state));
     },
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
-    searchEmployee: (state, action) => {},
+    searchEmployee: (state, action) => {
+      // console.log(action.payload);
+      // const backupState = state;
+      const keys = [
+        "firstName",
+        // "lastName",
+        // "DateofBirth",
+        // "StartDate",
+        // "street",
+        // "city",
+        // "zipCode",
+      ];
+      state.data = state.data.filter((employee) =>
+        keys.some((key) => employee[key].toLowerCase().includes(action.payload))
+      );
+
+      return state;
+
+      // state.data = [
+      //   ...state.data.filter(
+      //     (employee) =>
+      //       keys.some((key) =>
+      //         employee[key].toLowerCase().includes(action.payload)
+      //       )
+      //     // employee[key].toLowerCase().includes(action.payload)
+      //   ),
+      // ];
+      // return state;
+
+      // return void (state.data = [
+      //   ...state.data.filter(
+      //     (employee) =>
+      //       keys.some((key) =>
+      //         employee[key].toLowerCase().includes(action.payload)
+      //       )
+      //     // employee[key].toLowerCase().includes(action.payload)
+      //   ),
+      // ]);
+    },
     sortEmployee: (state, action) => {
       if (toggle) {
         state.arrow = false;
@@ -151,6 +189,7 @@ export const editArrayContent = createSlice({
   },
 });
 
-export const { newEmployee, sortEmployee } = editArrayContent.actions;
+export const { newEmployee, sortEmployee, searchEmployee } =
+  editArrayContent.actions;
 
 export default editArrayContent.reducer;

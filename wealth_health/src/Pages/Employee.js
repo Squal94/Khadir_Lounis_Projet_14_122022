@@ -11,15 +11,15 @@ import SearchArray from "../Components/SearchArray";
 
 const Employee = () => {
   // const dispatch = useDispatch;
-  const testvalue = useSelector((state) => state.array);
-  console.log(testvalue);
+  // const testvalue = useSelector((state) => state.array);
+  // console.log(testvalue);
 
   return (
     <div>
       {/* <h1>Je suis employee</h1>
       <SelectItem props={states} />
       <DatePicker title={"Date of Birth"} /> */}
-      <SearchArray />
+      {/* <SearchArray /> */}
       <ArrayEmployee />
       {/* <Arrow /> */}
     </div>
