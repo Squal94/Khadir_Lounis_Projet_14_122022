@@ -9,9 +9,6 @@ const ArrayEmployee = () => {
   const arrowselectAll = document.querySelectorAll(".thForme");
   const dispatch = useDispatch();
 
-  // const arrowUpAll = document.querySelectorAll(".arrowContainer__up");
-  // const arrowdownAll = document.querySelectorAll(".arrowContainer__down");
-
   function arrowToogle() {
     let eltSelected;
     arrowselectAll.forEach((elt) => {
@@ -40,20 +37,8 @@ const ArrayEmployee = () => {
               .querySelector(".arrowContainer__down")
               .classList.remove("colorWhite", "colorSelect");
           }
-
-          // if (elt.id === eltSelected) {
-          // } else {
-          //   arrowUp.classList.remove("colorWhite", "colorSelect");
-          //   arrowDown.classList.remove("colorWhite", "colorSelect");
-          // }
         });
       });
-      // for (let i = 0; i < arrowselectAll.length - 1; i++) {
-      //   if (arrowselectAll[i].id !== eltSelected) {
-      //     arrowUp.classList.remove("colorWhite", "colorSelect");
-      //     arrowDown.classList.remove("colorWhite", "colorSelect");
-      //   }
-      // }
     });
   }
   return (
