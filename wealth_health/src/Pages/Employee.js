@@ -18,8 +18,8 @@ const Employee = () => {
       {/* <h1>Je suis employee</h1>
       <SelectItem props={states} />
       <DatePicker title={"Date of Birth"} /> */}
-      {/* <ArrayEmployee /> */}
-      <Arrow />
+      <ArrayEmployee />
+      {/* <Arrow /> */}
     </div>
   );
 };
