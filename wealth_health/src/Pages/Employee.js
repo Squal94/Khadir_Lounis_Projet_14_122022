@@ -9,7 +9,7 @@ import Arrow from "../Components/Arrow";
 // import DatePicker from "../Components/DatePicker";
 
 const Employee = () => {
-  const dispatch = useDispatch;
+  // const dispatch = useDispatch;
   const testvalue = useSelector((state) => state.array);
   console.log(testvalue);
 
