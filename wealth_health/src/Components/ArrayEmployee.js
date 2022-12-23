@@ -7,26 +7,55 @@ const ArrayEmployee = () => {
   const dataStoreEmployee = useSelector((state) => state.employee.data);
   const arrowSelector = useSelector((state) => state.employee.arrow);
   const arrowselectAll = document.querySelectorAll(".thForme");
+  const dispatch = useDispatch();
+
+  // const arrowUpAll = document.querySelectorAll(".arrowContainer__up");
+  // const arrowdownAll = document.querySelectorAll(".arrowContainer__down");
+
   function arrowToogle() {
+    let eltSelected;
     arrowselectAll.forEach((elt) => {
+      const arrowUp = elt.querySelector(".arrowContainer__up");
+      const arrowDown = elt.querySelector(".arrowContainer__down");
+
       elt.addEventListener("click", () => {
-        const arrowUp = elt.querySelector(".arrowContainer__up");
-        const arrowDown = elt.querySelector(".arrowContainer__down");
+        eltSelected = elt.id;
         if (arrowSelector) {
           arrowUp.classList.remove("colorSelect");
           arrowDown.classList.remove("colorWhite");
           arrowUp.classList.add("colorWhite");
           arrowDown.classList.add("colorSelect");
         } else {
-          arrowUp.classList.add("colorSelect");
-          arrowDown.classList.add("colorWhite");
           arrowUp.classList.remove("colorWhite");
           arrowDown.classList.remove("colorSelect");
+          arrowUp.classList.add("colorSelect");
+          arrowDown.classList.add("colorWhite");
         }
+        arrowselectAll.forEach((elt) => {
+          if (elt.id !== eltSelected) {
+            elt
+              .querySelector(".arrowContainer__up")
+              .classList.remove("colorWhite", "colorSelect");
+            elt
+              .querySelector(".arrowContainer__down")
+              .classList.remove("colorWhite", "colorSelect");
+          }
+
+          // if (elt.id === eltSelected) {
+          // } else {
+          //   arrowUp.classList.remove("colorWhite", "colorSelect");
+          //   arrowDown.classList.remove("colorWhite", "colorSelect");
+          // }
+        });
       });
+      // for (let i = 0; i < arrowselectAll.length - 1; i++) {
+      //   if (arrowselectAll[i].id !== eltSelected) {
+      //     arrowUp.classList.remove("colorWhite", "colorSelect");
+      //     arrowDown.classList.remove("colorWhite", "colorSelect");
+      //   }
+      // }
     });
   }
-  const dispatch = useDispatch();
   return (
     <div className="arrayContainer">
       <table>
