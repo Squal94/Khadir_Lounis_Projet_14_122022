@@ -1,45 +1,17 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { newEmployee } from "../Features/editArrayContent.slice";
+import { newEmployee } from "./../Features/editArrayContent.slice";
+import { saveEmployee } from "./../Utils/functionUtils";
 import dataEmployee from "./../Assets/Data.json";
-import ModalSubmit from "../Components/ModalSubmit";
-import { open } from "../Features/modal.slice";
+import ModalSubmit from "./../Components/ModalSubmit";
+import { open } from "./../Features/modal.slice";
 
 const Home = () => {
   const [error, setError] = useState(false);
   const openModal = useSelector((state) => state.modal.isOpened);
   const dispatch = useDispatch();
-  const last = dataEmployee.length - 1;
 
-  const saveEmployee = (e) => {
-    e.preventDefault();
-
-    const firstName = document.getElementById("firstName");
-    const lastName = document.getElementById("lastName");
-    const dateOfBirth = document.getElementById("birthday");
-    const startDate = document.getElementById("beginning");
-    const department = document.getElementById("department");
-    const street = document.getElementById("street");
-    const city = document.getElementById("city");
-    // const state = document.getElementById("state");
-    const zipCode = document.getElementById("zipCode");
-
-    const employee = {
-      id: last + 2,
-      firstName: firstName.value,
-      lastName: lastName.value,
-      birthday: dateOfBirth.value,
-      beginning: startDate.value,
-      department: department.value,
-      street: street.value,
-      city: city.value,
-      // state: state.value,
-      zipCode: zipCode.value,
-    };
-
-    dispatch(newEmployee(employee));
-  };
   console.log(openModal);
 
   return (
@@ -55,7 +27,8 @@ const Home = () => {
           <h2 className="home__form--title">Create Employee</h2>
           <form
             onSubmit={(e) => {
-              saveEmployee(e);
+              let employee = saveEmployee(e, dataEmployee);
+              dispatch(newEmployee(employee));
               dispatch(open());
             }}
           >

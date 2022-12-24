@@ -1,4 +1,4 @@
-function arrowToogle(selectItem) {
+const arrowToogle = (selectItem) => {
   let eltSelected;
   const arrowselectAll = document.querySelectorAll(".thForme");
   arrowselectAll.forEach((elt) => {
@@ -30,6 +30,34 @@ function arrowToogle(selectItem) {
       });
     });
   });
-}
+};
 
-export { arrowToogle };
+const saveEmployee = (e, data) => {
+  e.preventDefault();
+  const last = data.length - 1;
+  const firstName = document.getElementById("firstName");
+  const lastName = document.getElementById("lastName");
+  const dateOfBirth = document.getElementById("birthday");
+  const startDate = document.getElementById("beginning");
+  const department = document.getElementById("department");
+  const street = document.getElementById("street");
+  const city = document.getElementById("city");
+  // const state = document.getElementById("state");
+  const zipCode = document.getElementById("zipCode");
+
+  const employee = {
+    id: last + 2,
+    firstName: firstName.value,
+    lastName: lastName.value,
+    birthday: dateOfBirth.value,
+    beginning: startDate.value,
+    department: department.value,
+    street: street.value,
+    city: city.value,
+    // state: state.value,
+    zipCode: zipCode.value,
+  };
+  return employee;
+};
+
+export { arrowToogle, saveEmployee };
