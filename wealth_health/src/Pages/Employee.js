@@ -1,5 +1,7 @@
 import React from "react";
 import ArrayEmployee from "../Components/ArrayEmployee";
+import NumberLine from "../Components/NumberLine";
+import Pagination from "../Components/Pagination";
 import SearchArray from "../Components/SearchArray";
 
 const Employee = () => {
@@ -8,8 +10,10 @@ const Employee = () => {
       <h1>Current Employees</h1>
       {/* <SelectItem props={states} />
       <DatePicker title={"Date of Birth"} />  */}
+      <NumberLine />
       <SearchArray />
       <ArrayEmployee />
+      <Pagination />
     </div>
   );
 };
