@@ -15,12 +15,6 @@ const SelectItem = ({ props }) => {
     list.classList.toggle("hide");
     toggleArrow();
   };
-
-  // const selectText = document.getElementById("selectText");
-  // let options = document.getElementsByClassName("selectItem__list--option");
-  // for (option of options) {
-  //   option.onclick();
-  // }
   return (
     <div className="selectItem">
       <div

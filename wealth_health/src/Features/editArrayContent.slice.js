@@ -18,21 +18,12 @@ export const editArrayContent = createSlice({
     newEmployee: (state = [...initialState], action) => {
       state.data.push(action.payload);
       state.filterEmployees = employeeFilter(state.data, state.searchTerm);
-      // state.data.filter((employee) =>
-      //   keys.some((key) =>
-      //     employee[key].toLowerCase().includes(state.searchTerm)
-      //   )
-      // );
     },
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
     searchEmployee: (state, action) => {
       state.searchTerm = action.payload;
       state.filterEmployees = employeeFilter(state.data, action.payload);
-      // state.filterEmployees = state.data.filter((employee) =>
-      //   keys.some((key) => employee[key].toLowerCase().includes(action.payload))
-      // );
-
       return state;
     },
     sortEmployee: (state, action) => {
@@ -70,15 +61,6 @@ export const editArrayContent = createSlice({
           return state.filterEmployees;
       }
     },
-    // logout: (state) => {
-    //   // state.auth.Logged = !state.auth.Logged;
-    //   state = initialState();
-    //   return state;
-    // },
-    // infoUser: (state, action) => {
-    //   state.firstName = action.payload[0];
-    //   state.lastName = action.payload[1];
-    // },
   },
 });
 

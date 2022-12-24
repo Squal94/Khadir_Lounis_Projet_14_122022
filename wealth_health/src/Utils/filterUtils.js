@@ -2,10 +2,10 @@ function employeeFilter(data, value) {
   const keys = [
     "firstName",
     "lastName",
-    // "DateofBirth",
-    // "StartDate",
     "street",
     "city",
+    // "DateofBirth",
+    // "StartDate",
     // "zipCode",
   ];
 

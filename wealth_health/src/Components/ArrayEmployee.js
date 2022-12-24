@@ -1,62 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sortEmployee } from "../Features/editArrayContent.slice";
-// import { searchEmployee } from "./../Features/editArrayContent.slice";
+import { arrowToogle } from "./../Utils/functionUtils";
 import Arrow from "./Arrow";
 
 const ArrayEmployee = () => {
+  const dispatch = useDispatch();
   let dataStoreEmployee = useSelector(
     (state) => state.employee.filterEmployees
   );
-  console.log(dataStoreEmployee);
+  // console.log(dataStoreEmployee);
   const arrowSelector = useSelector((state) => state.employee.arrow);
-  const arrowselectAll = document.querySelectorAll(".thForme");
-  const dispatch = useDispatch();
+  arrowToogle(arrowSelector);
 
-  function arrowToogle() {
-    let eltSelected;
-    arrowselectAll.forEach((elt) => {
-      const arrowUp = elt.querySelector(".arrowContainer__up");
-      const arrowDown = elt.querySelector(".arrowContainer__down");
-
-      elt.addEventListener("click", () => {
-        eltSelected = elt.id;
-        if (arrowSelector) {
-          arrowUp.classList.remove("colorSelect");
-          arrowDown.classList.remove("colorWhite");
-          arrowUp.classList.add("colorWhite");
-          arrowDown.classList.add("colorSelect");
-        } else {
-          arrowUp.classList.remove("colorWhite");
-          arrowDown.classList.remove("colorSelect");
-          arrowUp.classList.add("colorSelect");
-          arrowDown.classList.add("colorWhite");
-        }
-        arrowselectAll.forEach((elt) => {
-          if (elt.id !== eltSelected) {
-            elt
-              .querySelector(".arrowContainer__up")
-              .classList.remove("colorWhite", "colorSelect");
-            elt
-              .querySelector(".arrowContainer__down")
-              .classList.remove("colorWhite", "colorSelect");
-          }
-        });
-      });
-    });
-  }
   return (
     <div className="arrayContainer">
-      {/* <div className="searchContainer">
-        <label> Search :</label>
-        <input
-          type="text"
-          id="searchId"
-          onChange={(e) => {
-            dispatch(searchEmployee(e.target.value));
-          }}
-        />
-      </div> */}
       <table>
         <thead>
           <tr>
