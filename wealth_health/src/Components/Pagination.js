@@ -9,8 +9,12 @@ const Pagination = () => {
           Showing 0 to 0 of 0 entries
         </p>
         <div className="paginationContainer__element__btn">
-          <p className="paginationContainer__element__btn--prev">Previous</p>
-          <p className="paginationContainer__element__btn--next">Next</p>
+          <p className="paginationContainer__element__btn--prev" id="navPrev">
+            Previous
+          </p>
+          <p className="paginationContainer__element__btn--next" id="navNext">
+            Next
+          </p>
         </div>
       </div>
       <div className="paginationContainer__element--home">
