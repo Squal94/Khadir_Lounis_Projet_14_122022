@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import dataEmployee from "./../Assets/Data.json";
+import ModalSubmit from "./../Components/ModalSubmit";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { newEmployee } from "./../Features/editArrayContent.slice";
 import { saveEmployee } from "./../Utils/functionUtils";
-import dataEmployee from "./../Assets/Data.json";
-import ModalSubmit from "./../Components/ModalSubmit";
 import { open } from "./../Features/modal.slice";
 
 const Home = () => {
