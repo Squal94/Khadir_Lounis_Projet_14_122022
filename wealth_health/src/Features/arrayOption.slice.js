@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 // import {}
 
 const initialState = {
@@ -7,13 +7,13 @@ const initialState = {
 };
 
 export const arraySlice = createSlice({
-  name: "array",
+  name: "arrayOption",
   initialState: initialState,
   reducers: {
     numberChoice: (state, action) => {
       state.length = action.payload[0];
       state.numberLine = action.payload[1];
-      console.log(action.payload);
+      // console.log(action.payload);
     },
   },
 });

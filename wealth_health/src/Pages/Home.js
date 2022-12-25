@@ -12,7 +12,7 @@ const Home = () => {
   const openModal = useSelector((state) => state.modal.isOpened);
   const dispatch = useDispatch();
 
-  console.log(openModal);
+  // console.log(openModal);
 
   return (
     <div>
