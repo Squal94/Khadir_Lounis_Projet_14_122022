@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { numberChoice } from "./../Features/arrayOption.slice";
+import { paginationLimitLine } from "../Features/editArrayContent.slice";
 
 const NumberLine = () => {
   const employeeLength = useSelector(
@@ -15,6 +16,7 @@ const NumberLine = () => {
   }
 
   dispatch(numberChoice([employeeLength, numberLine]));
+  dispatch(paginationLimitLine([employeeLength, numberLine]));
 
   return (
     <div className="containerNumber">

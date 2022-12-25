@@ -9,6 +9,7 @@ const initialState = {
   filterEmployees: [...dataEmployee],
   searchTerm: "",
   arrow: true,
+  numberPage: "",
 };
 
 export const editArrayContent = createSlice({
@@ -61,11 +62,29 @@ export const editArrayContent = createSlice({
           return state.filterEmployees;
       }
     },
-    paginationAction: (state, action) => {},
+    paginationLimitLine: (state, action) => {
+      const itemNumber = action.payload[0] / action.payload[1];
+      if (Number.isInteger(itemNumber)) {
+        // console.log(itemNumber);
+        state.numberPage = itemNumber;
+      } else {
+        // console.log("ce chiffre n'est pas entier" + itemNumber);
+        // console.log(Math.ceil(itemNumber));
+        state.numberPage = Math.ceil(itemNumber);
+      }
+
+      // return data.filter((employee) =>
+      //   keys.some((key) => employee[key].toLowerCase().includes(value))
+      // );
+    },
   },
 });
 
-export const { newEmployee, sortEmployee, searchEmployee, paginationAction } =
-  editArrayContent.actions;
+export const {
+  newEmployee,
+  sortEmployee,
+  searchEmployee,
+  paginationLimitLine,
+} = editArrayContent.actions;
 
 export default editArrayContent.reducer;

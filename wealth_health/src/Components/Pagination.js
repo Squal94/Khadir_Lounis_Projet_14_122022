@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { paginationAction } from "../Features/editArrayContent.slice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { paginationAction } from "../Features/editArrayContent.slice";
 
 const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState("1");
-  const numberLine = useSelector((state) => state.array.numberLine);
-  const dataLength = useSelector((state) => state.array.length);
-  const dispatch = useDispatch();
+  //   const [currentPage, setCurrentPage] = useState("1");
+  //   const numberLine = useSelector((state) => state.array.numberLine);
+  //   const dataLength = useSelector((state) => state.array.length);
+  //   const dispatch = useDispatch();
+
   // const dataStoreEmployee = useSelector(
   //   (state) => state.employee.filterEmployees
   // );
