@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { numberChoice } from "./../Features/arrayOption.slice";
+// import { numberChoice } from "./../Features/arrayOption.slice";
 import {
   paginationUtilValues,
   paginationAffichageLimit,
@@ -18,7 +18,7 @@ const NumberLine = () => {
   });
 
   function handleChangeNumber(value) {
-    dispatch(numberChoice([employeeLength, value]));
+    // dispatch(numberChoice([employeeLength, value]));
     dispatch(paginationUtilValues([employeeLength, value]));
     dispatch(paginationAffichageLimit(value));
   }

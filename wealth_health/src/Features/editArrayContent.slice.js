@@ -10,7 +10,7 @@ const initialState = {
   searchTerm: "",
   arrow: true,
   numberPage: "",
-  firstItem: 1,
+  firstItem: 0,
   LastItem: "",
   currentLastItem: "",
   currentnumberAffichage: "",
@@ -80,7 +80,10 @@ export const editArrayContent = createSlice({
     },
     paginationAffichageLimit: (state, action) => {
       state.filterEmployees = state.data;
-      state.filterEmployees = state.filterEmployees.slice(0, action.payload);
+      state.filterEmployees = state.filterEmployees.slice(
+        state.firstItem,
+        action.payload
+      );
       state.currentLastItem = action.payload;
     },
     paginationAffichageBtn: (state, action) => {
@@ -99,16 +102,14 @@ export const editArrayContent = createSlice({
             state.data.length;
           // console.log(calcLastValueArray);
           state.filterEmployees = state.data;
+          // console.log(current(state.data));
           // console.log(state.currentLastItem);
           // console.log(state.currentLastItem + (calcLastValueArray));
-          console.log(
-            (state.filterEmployees = state.filterEmployees.slice(
-              state.currentLastItem,
-              state.currentLastItem + calcLastValueArray
-            ))
+          state.filterEmployees = state.filterEmployees.slice(
+            state.currentLastItem + calcLastValueArray
           );
 
-          // state.currentLastItem = state.currentLastItem + calcLastValueArray;
+          state.currentLastItem = state.currentLastItem + calcLastValueArray;
         } else {
           state.filterEmployees = state.data;
           state.filterEmployees = state.filterEmployees.slice(
@@ -160,3 +161,66 @@ export const {
 } = editArrayContent.actions;
 
 export default editArrayContent.reducer;
+
+// paginationAffichageBtn: (state, action) => {
+//   if (
+//     action.payload === "next" &&
+//     state.currentLastItem < state.data.length
+//   ) {
+//     if (
+//       parseInt(state.currentLastItem) +
+//         parseInt(state.currentnumberAffichage) >
+//       state.data.length
+//     ) {
+//       const calcLastValueArray =
+//         parseInt(state.currentLastItem) +
+//         parseInt(state.currentnumberAffichage) -
+//         state.data.length;
+//       // console.log(calcLastValueArray);
+//       state.filterEmployees = state.data;
+//       // console.log(current(state.data));
+//       // console.log(state.currentLastItem);
+//       // console.log(state.currentLastItem + (calcLastValueArray));
+//       state.filterEmployees = state.filterEmployees.slice(
+//         state.currentLastItem + calcLastValueArray
+//       );
+
+//       state.currentLastItem = state.currentLastItem + calcLastValueArray;
+//     } else {
+//       state.filterEmployees = state.data;
+//       state.filterEmployees = state.filterEmployees.slice(
+//         state.currentLastItem,
+//         parseInt(state.currentLastItem) +
+//           parseInt(state.currentnumberAffichage)
+//       );
+//       state.currentLastItem =
+//         parseInt(state.currentLastItem) +
+//         parseInt(state.currentnumberAffichage);
+//     }
+//   }
+//   if (action.payload === "prev" && state.currentLastItem > 0) {
+//     // console.log("je prev");
+//     // console.log(state.currentLastItem);
+//     // console.log(state.currentnumberAffichage);
+//     state.filterEmployees = state.data;
+//     state.filterEmployees = state.filterEmployees.slice(
+//       parseInt(state.currentLastItem) -
+//         parseInt(state.currentnumberAffichage),
+//       state.currentLastItem
+//     );
+//     state.currentLastItem =
+//       parseInt(state.currentLastItem) -
+//       parseInt(state.currentnumberAffichage);
+//   }
+//   // else {
+//   //   console.log("Pour les erreurs " + state.currentLastItem);
+//   // if (state.currentLastItem > state.data) {
+//   //   console.log("Tableau fini");
+//   //   state.errorMaxArray = true;
+//   // }
+//   // if (state.currentLastItem < 1) {
+//   //   state.errorMinArray = true;
+//   //   console.log("debut Tableau");
+//   // }
+//   // }
+// },
