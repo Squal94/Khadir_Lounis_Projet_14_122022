@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { numberChoice } from "./../Features/arrayOption.slice";
 import {
@@ -13,14 +13,15 @@ const NumberLine = () => {
   const [numberLine, setNumberLine] = useState("10");
   const dispatch = useDispatch();
 
-  function handleChangeNumber(e) {
-    let numberLineQuery = e.target.value;
-    setNumberLine(numberLineQuery);
-  }
+  useEffect(() => {
+    handleChangeNumber(numberLine);
+  });
 
-  dispatch(numberChoice([employeeLength, numberLine]));
-  dispatch(paginationUtilValues([employeeLength, numberLine]));
-  dispatch(paginationAffichageLimit(numberLine));
+  function handleChangeNumber(value) {
+    dispatch(numberChoice([employeeLength, value]));
+    dispatch(paginationUtilValues([employeeLength, value]));
+    dispatch(paginationAffichageLimit(value));
+  }
 
   return (
     <div className="containerNumber">
@@ -31,7 +32,7 @@ const NumberLine = () => {
           name="numberLine"
           id="numberLine"
           onChange={(e) => {
-            handleChangeNumber(e);
+            setNumberLine(e.target.value);
           }}
         >
           <option value="10">10</option>

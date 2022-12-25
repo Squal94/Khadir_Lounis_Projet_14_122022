@@ -122,9 +122,9 @@ export const editArrayContent = createSlice({
         }
       }
       if (action.payload === "prev" && state.currentLastItem > 0) {
-        console.log("je prev");
-        console.log(state.currentLastItem);
-        console.log(state.currentnumberAffichage);
+        // console.log("je prev");
+        // console.log(state.currentLastItem);
+        // console.log(state.currentnumberAffichage);
         state.filterEmployees = state.data;
         state.filterEmployees = state.filterEmployees.slice(
           parseInt(state.currentLastItem) -
