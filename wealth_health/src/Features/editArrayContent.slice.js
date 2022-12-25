@@ -10,6 +10,8 @@ const initialState = {
   searchTerm: "",
   arrow: true,
   numberPage: "",
+  firstItem: 1,
+  LastItem: "",
 };
 
 export const editArrayContent = createSlice({
@@ -62,20 +64,18 @@ export const editArrayContent = createSlice({
           return state.filterEmployees;
       }
     },
-    paginationLimitLine: (state, action) => {
-      const itemNumber = action.payload[0] / action.payload[1];
-      if (Number.isInteger(itemNumber)) {
-        // console.log(itemNumber);
-        state.numberPage = itemNumber;
+    paginationUtilValues: (state, action) => {
+      const pageNumber = action.payload[0] / action.payload[1];
+      if (Number.isInteger(pageNumber)) {
+        state.numberPage = pageNumber;
       } else {
-        // console.log("ce chiffre n'est pas entier" + itemNumber);
-        // console.log(Math.ceil(itemNumber));
-        state.numberPage = Math.ceil(itemNumber);
+        state.numberPage = Math.ceil(pageNumber);
       }
-
-      // return data.filter((employee) =>
-      //   keys.some((key) => employee[key].toLowerCase().includes(value))
-      // );
+      state.LastItem = action.payload[0];
+    },
+    paginationAffichageLimit: (state, action) => {
+      state.filterEmployees = state.data;
+      state.filterEmployees = state.filterEmployees.slice(0, action.payload);
     },
   },
 });
@@ -84,7 +84,8 @@ export const {
   newEmployee,
   sortEmployee,
   searchEmployee,
-  paginationLimitLine,
+  paginationUtilValues,
+  paginationAffichageLimit,
 } = editArrayContent.actions;
 
 export default editArrayContent.reducer;
