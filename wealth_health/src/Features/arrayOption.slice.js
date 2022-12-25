@@ -13,6 +13,7 @@ export const arraySlice = createSlice({
     numberChoice: (state, action) => {
       state.length = action.payload[0];
       state.numberLine = action.payload[1];
+
       // console.log(action.payload);
     },
   },

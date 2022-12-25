@@ -1,17 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
-// import { paginationAction } from "../Features/editArrayContent.slice";
+import { paginationAffichageBtn } from "../Features/editArrayContent.slice";
 
 const Pagination = () => {
   //   const [currentPage, setCurrentPage] = useState("1");
   //   const numberLine = useSelector((state) => state.array.numberLine);
   //   const dataLength = useSelector((state) => state.array.length);
   //   const dispatch = useDispatch();
-
   // const dataStoreEmployee = useSelector(
   //   (state) => state.employee.filterEmployees
   // );
+  const dispatch = useDispatch();
   return (
     <div className="paginationContainer">
       <div className="paginationContainer__element">
@@ -19,10 +20,22 @@ const Pagination = () => {
           Showing 0 to 0 of 0 entries
         </p>
         <div className="paginationContainer__element__btn">
-          <p className="paginationContainer__element__btn--prev" id="navPrev">
+          <p
+            className="paginationContainer__element__btn--prev"
+            id="navPrev"
+            onClick={() => {
+              dispatch(paginationAffichageBtn("prev"));
+            }}
+          >
             Previous
           </p>
-          <p className="paginationContainer__element__btn--next" id="navNext">
+          <p
+            className="paginationContainer__element__btn--next"
+            id="navNext"
+            onClick={() => {
+              dispatch(paginationAffichageBtn("next"));
+            }}
+          >
             Next
           </p>
         </div>
