@@ -61,10 +61,11 @@ export const editArrayContent = createSlice({
           return state.filterEmployees;
       }
     },
+    paginationAction: (state, action) => {},
   },
 });
 
-export const { newEmployee, sortEmployee, searchEmployee } =
+export const { newEmployee, sortEmployee, searchEmployee, paginationAction } =
   editArrayContent.actions;
 
 export default editArrayContent.reducer;

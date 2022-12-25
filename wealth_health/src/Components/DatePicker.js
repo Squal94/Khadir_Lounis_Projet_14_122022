@@ -7,7 +7,7 @@ const DatePicker = (props) => {
   useEffect(() => {
     setDateTitle(props.title);
   }, [props]);
-  // console.log(dateValue);
+  console.log(dateValue);
 
   return (
     <div className="datePicker">

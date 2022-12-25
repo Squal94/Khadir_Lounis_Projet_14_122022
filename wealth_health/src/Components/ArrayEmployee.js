@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sortEmployee } from "../Features/editArrayContent.slice";
 import { arrowToogle } from "./../Utils/functionUtils";
+
 import Arrow from "./Arrow";
 
 const ArrayEmployee = () => {
-  const [currentPage, setCurrentPage] = useState("1");
-  const numberLine = useSelector((state) => state.array.numberLine);
-  const dataLength = useSelector((state) => state.array.length);
-  console.log(numberLine, dataLength);
   const dispatch = useDispatch();
-  let dataStoreEmployee = useSelector(
+  const arrowSelector = useSelector((state) => state.employee.arrow);
+  const dataStoreEmployee = useSelector(
     (state) => state.employee.filterEmployees
   );
-  // console.log(dataStoreEmployee);
-  const arrowSelector = useSelector((state) => state.employee.arrow);
+  // console.log(numberLine, dataLength);
   arrowToogle(arrowSelector);
 
   return (
