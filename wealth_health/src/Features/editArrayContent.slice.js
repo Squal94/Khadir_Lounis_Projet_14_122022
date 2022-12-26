@@ -3,21 +3,19 @@ import dataEmployee from "../Assets/Data.json";
 import { sortAZ, sortNumber, sortDate } from "./../Utils/sortUtils";
 import { employeeFilter } from "./../Utils/filterUtils";
 
-let toggle = true;
 const initialState = {
   data: [...dataEmployee],
   filterEmployees: [...dataEmployee],
   searchTerm: "",
   arrow: true,
-  numberPage: "",
   firstItem: 0,
-  LastItem: "",
   currentLastItem: "",
   currentnumberAffichage: 10,
   borderValue: "",
   errorMaxArray: false,
   errorMinArray: false,
 };
+let toggle = true;
 
 export const editArrayContent = createSlice({
   name: "employee",
@@ -88,8 +86,9 @@ export const editArrayContent = createSlice({
       switch (action.payload) {
         case "prev":
           if (prevValue < 0) {
-            console.log("Debut employee");
+            state.errorMinArray = true;
           } else {
+            state.errorMaxArray = false;
             state.filterEmployees = state.data.slice(
               prevValue,
               state.currentLastItem
@@ -98,12 +97,14 @@ export const editArrayContent = createSlice({
           }
           break;
         case "next":
+          state.errorMinArray = false;
           if (nextValue > state.data.length) {
             state.borderValue = nextValue - state.data.length;
             state.filterEmployees = state.data.slice(
               state.currentLastItem,
               parseInt(state.currentLastItem) + parseInt(state.borderValue)
             );
+            state.errorMaxArray = true;
           } else {
             state.filterEmployees = state.data.slice(
               state.currentLastItem,

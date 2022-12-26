@@ -34,19 +34,21 @@ const SelectItem = ({ props }) => {
         />
       </div>
       <ul className="selectItem__list hide">
-        {props.map((unit) => (
-          <li
-            className="selectItem__list--option"
-            onClick={() => {
-              setOption(unit.name);
-              setSelected(true);
-              toggleList();
-            }}
-            key={unit.abbreviation}
-          >
-            <p>{unit.name}</p>
-          </li>
-        ))}
+        <div className="selectItem__list__container">
+          {props.map((unit) => (
+            <li
+              className="selectItem__list--option"
+              onClick={() => {
+                setOption(unit.name);
+                setSelected(true);
+                toggleList();
+              }}
+              key={unit.abbreviation}
+            >
+              <p>{unit.name}</p>
+            </li>
+          ))}
+        </div>
       </ul>
     </div>
   );
