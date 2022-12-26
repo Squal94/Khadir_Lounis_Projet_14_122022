@@ -9,7 +9,7 @@ const ArrayEmployee = () => {
   const dispatch = useDispatch();
   const arrowSelector = useSelector((state) => state.employee.arrow);
   const dataStoreEmployee = useSelector(
-    (state) => state.employee.paginationArray
+    (state) => state.employee.filterEmployees
   );
   // console.log(numberLine, dataLength);
   arrowToogle(arrowSelector);
