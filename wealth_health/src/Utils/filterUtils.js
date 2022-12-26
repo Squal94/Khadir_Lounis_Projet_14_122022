@@ -8,7 +8,6 @@ function employeeFilter(data, value) {
     // "StartDate",
     // "zipCode",
   ];
-
   return data.filter((employee) =>
     keys.some((key) => employee[key].toLowerCase().includes(value))
   );

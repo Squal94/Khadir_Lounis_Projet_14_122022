@@ -71,7 +71,6 @@ export const editArrayContent = createSlice({
     },
     paginationArrayLine: (state, action) => {
       state.currentnumberAffichage = action.payload;
-      // console.log(state.currentnumberAffichage);
       state.filterEmployees = state.data.slice(
         state.firstItem,
         state.currentnumberAffichage
@@ -79,7 +78,6 @@ export const editArrayContent = createSlice({
       state.currentLastItem = state.currentnumberAffichage;
     },
     paginationFunctionnality: (state, action) => {
-      // const SauvnumberAffichage = state.currentnumberAffichage;
       const nextValue =
         parseInt(state.currentLastItem) +
         parseInt(state.currentnumberAffichage);
@@ -100,7 +98,6 @@ export const editArrayContent = createSlice({
           }
           break;
         case "next":
-          // state.filterEmployees = state.data;
           if (nextValue > state.data.length) {
             state.borderValue = nextValue - state.data.length;
             state.filterEmployees = state.data.slice(
@@ -119,16 +116,6 @@ export const editArrayContent = createSlice({
           return state;
       }
     },
-    // paginationUtilValues: (state, action) => {
-    //   const pageNumber = action.payload[0] / action.payload[1];
-    //   if (Number.isInteger(pageNumber)) {
-    //     state.numberPage = pageNumber;
-    //   } else {
-    //     state.numberPage = Math.ceil(pageNumber);
-    //   }
-    //   state.LastItem = action.payload[0];
-    //   state.currentnumberAffichage = action.payload[1];
-    // },
   },
 });
 
@@ -138,85 +125,6 @@ export const {
   searchEmployee,
   paginationFunctionnality,
   paginationArrayLine,
-  // paginationUtilValues,
-  // paginationAffichageLimit,
-  // paginationAffichageBtn,
 } = editArrayContent.actions;
 
 export default editArrayContent.reducer;
-
-// paginationUtilValues: (state, action) => {
-//   const pageNumber = action.payload[0] / action.payload[1];
-//   if (Number.isInteger(pageNumber)) {
-//     state.numberPage = pageNumber;
-//   } else {
-//     state.numberPage = Math.ceil(pageNumber);
-//   }
-//   state.LastItem = action.payload[0];
-//   state.currentnumberAffichage = action.payload[1];
-// },
-// paginationAffichageLimit: (state, action) => {
-//   state.filterEmployees = state.data;
-//   state.filterEmployees = state.filterEmployees.slice(
-//     state.firstItem,
-//     action.payload
-//   );
-//   state.currentLastItem = action.payload;
-// },
-// paginationAffichageBtn: (state, action) => {
-//   if (action.payload === "next") {
-//     state.filterEmployees = state.data;
-//     state.filterEmployees = state.filterEmployees.slice(
-//       state.currentLastItem,
-//       parseInt(state.currentLastItem) +
-//         parseInt(state.currentnumberAffichage)
-//     );
-//     state.currentLastItem =
-//       parseInt(state.currentLastItem) +
-//       parseInt(state.currentnumberAffichage);
-//   }
-//   if (
-//     parseInt(state.currentLastItem) +
-//       parseInt(state.currentnumberAffichage) >
-//     state.data.length
-//   ) {
-//     const calcLastValueArray =
-//       parseInt(state.currentLastItem) +
-//       parseInt(state.currentnumberAffichage) -
-//       state.data.length;
-//     console.log(calcLastValueArray);
-//     state.filterEmployees = state.data;
-//     console.log(current(state.data));
-//     console.log(state.currentLastItem);
-//     state.filterEmployees = state.filterEmployees.slice(
-//       state.currentLastItem + calcLastValueArray,
-//       state.currentLastItem
-//     );
-
-//     state.currentLastItem = state.currentLastItem + calcLastValueArray;
-//   }
-//   if (action.payload === "prev" && state.currentLastItem > 0) {
-//     console.log("je prev");
-//     console.log(state.currentLastItem);
-//     console.log(state.currentnumberAffichage);
-//     state.filterEmployees = state.data;
-//     state.filterEmployees = state.filterEmployees.slice(
-//       parseInt(state.currentLastItem) -
-//         parseInt(state.currentnumberAffichage),
-//       state.currentLastItem
-//     );
-//     state.currentLastItem =
-//       parseInt(state.currentLastItem) -
-//       parseInt(state.currentnumberAffichage);
-//   }
-// else {
-//   console.log("Pour les erreurs " + state.currentLastItem);
-//   if (state.currentLastItem > state.data) {
-//     console.log("Tableau fini");
-//     state.errorMaxArray = true;
-//   }
-//   if (state.currentLastItem < 1) {
-//     state.errorMinArray = true;
-//     console.log("debut Tableau");
-//   }
-// }

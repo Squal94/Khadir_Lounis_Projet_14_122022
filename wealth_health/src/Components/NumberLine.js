@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { numberChoice } from "./../Features/arrayOption.slice";
-// import // paginationUtilValues,
-// paginationAffichageLimit,
-// "../Features/editArrayContent.slice";
+import { useDispatch } from "react-redux";
 import { paginationArrayLine } from "./../Features/editArrayContent.slice";
 
 const NumberLine = () => {
-  // const employeeLength = useSelector(
-  //   (state) => state.employee.filterEmployees.length
-  // );
   const [numberLine, setNumberLine] = useState("10");
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     handleChangeNumber(numberLine);
@@ -20,11 +13,6 @@ const NumberLine = () => {
   function handleChangeNumber(value) {
     dispatch(paginationArrayLine(value));
   }
-  const dispatch = useDispatch();
-  // const currentnumberAffichage = useSelector(
-  //   (state) => state.employee.currentnumberAffichage
-  // );
-
   return (
     <div className="containerNumber">
       <p>
@@ -35,7 +23,6 @@ const NumberLine = () => {
           id="numberLine"
           onChange={(e) => {
             setNumberLine(e.target.value);
-            // dispatch(paginationArrayLine(e.target.value));
           }}
         >
           <option value="10">10</option>
