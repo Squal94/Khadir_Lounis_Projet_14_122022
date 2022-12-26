@@ -14,6 +14,7 @@ const initialState = {
   LastItem: "",
   currentLastItem: "",
   currentnumberAffichage: 10,
+  borderValue: "",
   errorMaxArray: false,
   errorMinArray: false,
 };
@@ -70,7 +71,7 @@ export const editArrayContent = createSlice({
     },
     paginationArrayLine: (state, action) => {
       state.currentnumberAffichage = action.payload;
-      console.log(state.currentnumberAffichage);
+      // console.log(state.currentnumberAffichage);
       state.filterEmployees = state.data.slice(
         state.firstItem,
         state.currentnumberAffichage
@@ -78,6 +79,7 @@ export const editArrayContent = createSlice({
       state.currentLastItem = state.currentnumberAffichage;
     },
     paginationFunctionnality: (state, action) => {
+      // const SauvnumberAffichage = state.currentnumberAffichage;
       const nextValue =
         parseInt(state.currentLastItem) +
         parseInt(state.currentnumberAffichage);
@@ -100,7 +102,11 @@ export const editArrayContent = createSlice({
         case "next":
           // state.filterEmployees = state.data;
           if (nextValue > state.data.length) {
-            console.log("Fin d'employee");
+            state.borderValue = nextValue - state.data.length;
+            state.filterEmployees = state.data.slice(
+              state.currentLastItem,
+              parseInt(state.currentLastItem) + parseInt(state.borderValue)
+            );
           } else {
             state.filterEmployees = state.data.slice(
               state.currentLastItem,
