@@ -10,18 +10,16 @@ const NumberLine = () => {
   // const employeeLength = useSelector(
   //   (state) => state.employee.filterEmployees.length
   // );
-  // const [numberLine, setNumberLine] = useState("10");
+  const [numberLine, setNumberLine] = useState("10");
   // const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   handleChangeNumber(numberLine);
-  // });
+  useEffect(() => {
+    handleChangeNumber(numberLine);
+  });
 
-  // function handleChangeNumber(value) {
-  //   // dispatch(numberChoice([employeeLength, value]));
-  //   dispatch(paginationUtilValues([employeeLength, value]));
-  //   dispatch(paginationAffichageLimit(value));
-  // }
+  function handleChangeNumber(value) {
+    dispatch(paginationArrayLine(value));
+  }
   const dispatch = useDispatch();
   // const currentnumberAffichage = useSelector(
   //   (state) => state.employee.currentnumberAffichage
@@ -36,7 +34,8 @@ const NumberLine = () => {
           name="numberLine"
           id="numberLine"
           onChange={(e) => {
-            dispatch(paginationArrayLine(e.target.value));
+            setNumberLine(e.target.value);
+            // dispatch(paginationArrayLine(e.target.value));
           }}
         >
           <option value="10">10</option>
