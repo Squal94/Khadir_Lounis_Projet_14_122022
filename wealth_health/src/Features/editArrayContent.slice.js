@@ -13,7 +13,7 @@ const initialState = {
   firstItem: 0,
   LastItem: "",
   currentLastItem: "",
-  currentnumberAffichage: "",
+  currentnumberAffichage: 10,
   errorMaxArray: false,
   errorMinArray: false,
 };
@@ -68,86 +68,61 @@ export const editArrayContent = createSlice({
           return state.filterEmployees;
       }
     },
-    paginationUtilValues: (state, action) => {
-      const pageNumber = action.payload[0] / action.payload[1];
-      if (Number.isInteger(pageNumber)) {
-        state.numberPage = pageNumber;
-      } else {
-        state.numberPage = Math.ceil(pageNumber);
-      }
-      state.LastItem = action.payload[0];
-      state.currentnumberAffichage = action.payload[1];
-    },
-    paginationAffichageLimit: (state, action) => {
-      state.filterEmployees = state.data;
-      state.filterEmployees = state.filterEmployees.slice(
+    paginationArrayLine: (state, action) => {
+      state.currentnumberAffichage = action.payload;
+      console.log(state.currentnumberAffichage);
+      state.filterEmployees = state.data.slice(
         state.firstItem,
-        action.payload
+        state.currentnumberAffichage
       );
-      state.currentLastItem = action.payload;
+      state.currentLastItem = state.currentnumberAffichage;
     },
-    paginationAffichageBtn: (state, action) => {
-      if (
-        action.payload === "next" &&
-        state.currentLastItem < state.data.length
-      ) {
-        if (
-          parseInt(state.currentLastItem) +
-            parseInt(state.currentnumberAffichage) >
-          state.data.length
-        ) {
-          const calcLastValueArray =
-            parseInt(state.currentLastItem) +
-            parseInt(state.currentnumberAffichage) -
-            state.data.length;
-          // console.log(calcLastValueArray);
-          state.filterEmployees = state.data;
-          // console.log(current(state.data));
-          // console.log(state.currentLastItem);
-          // console.log(state.currentLastItem + (calcLastValueArray));
-          state.filterEmployees = state.filterEmployees.slice(
-            state.currentLastItem + calcLastValueArray
-          );
+    paginationFunctionnality: (state, action) => {
+      const nextValue =
+        parseInt(state.currentLastItem) +
+        parseInt(state.currentnumberAffichage);
+      const prevValue =
+        parseInt(state.currentLastItem) -
+        parseInt(state.currentnumberAffichage);
 
-          state.currentLastItem = state.currentLastItem + calcLastValueArray;
-        } else {
-          state.filterEmployees = state.data;
-          state.filterEmployees = state.filterEmployees.slice(
-            state.currentLastItem,
-            parseInt(state.currentLastItem) +
-              parseInt(state.currentnumberAffichage)
-          );
-          state.currentLastItem =
-            parseInt(state.currentLastItem) +
-            parseInt(state.currentnumberAffichage);
-        }
+      switch (action.payload) {
+        case "prev":
+          if (prevValue < 0) {
+            console.log("Debut employee");
+          } else {
+            state.filterEmployees = state.data.slice(
+              prevValue,
+              state.currentLastItem
+            );
+            state.currentLastItem = prevValue;
+          }
+          break;
+        case "next":
+          // state.filterEmployees = state.data;
+          if (nextValue > state.data.length) {
+            console.log("Fin d'employee");
+          } else {
+            state.filterEmployees = state.data.slice(
+              state.currentLastItem,
+              nextValue
+            );
+            state.currentLastItem = nextValue;
+          }
+          break;
+        default:
+          return state;
       }
-      if (action.payload === "prev" && state.currentLastItem > 0) {
-        // console.log("je prev");
-        // console.log(state.currentLastItem);
-        // console.log(state.currentnumberAffichage);
-        state.filterEmployees = state.data;
-        state.filterEmployees = state.filterEmployees.slice(
-          parseInt(state.currentLastItem) -
-            parseInt(state.currentnumberAffichage),
-          state.currentLastItem
-        );
-        state.currentLastItem =
-          parseInt(state.currentLastItem) -
-          parseInt(state.currentnumberAffichage);
-      }
-      // else {
-      //   console.log("Pour les erreurs " + state.currentLastItem);
-      // if (state.currentLastItem > state.data) {
-      //   console.log("Tableau fini");
-      //   state.errorMaxArray = true;
-      // }
-      // if (state.currentLastItem < 1) {
-      //   state.errorMinArray = true;
-      //   console.log("debut Tableau");
-      // }
-      // }
     },
+    // paginationUtilValues: (state, action) => {
+    //   const pageNumber = action.payload[0] / action.payload[1];
+    //   if (Number.isInteger(pageNumber)) {
+    //     state.numberPage = pageNumber;
+    //   } else {
+    //     state.numberPage = Math.ceil(pageNumber);
+    //   }
+    //   state.LastItem = action.payload[0];
+    //   state.currentnumberAffichage = action.payload[1];
+    // },
   },
 });
 
@@ -155,53 +130,69 @@ export const {
   newEmployee,
   sortEmployee,
   searchEmployee,
-  paginationUtilValues,
-  paginationAffichageLimit,
-  paginationAffichageBtn,
+  paginationFunctionnality,
+  paginationArrayLine,
+  // paginationUtilValues,
+  // paginationAffichageLimit,
+  // paginationAffichageBtn,
 } = editArrayContent.actions;
 
 export default editArrayContent.reducer;
 
+// paginationUtilValues: (state, action) => {
+//   const pageNumber = action.payload[0] / action.payload[1];
+//   if (Number.isInteger(pageNumber)) {
+//     state.numberPage = pageNumber;
+//   } else {
+//     state.numberPage = Math.ceil(pageNumber);
+//   }
+//   state.LastItem = action.payload[0];
+//   state.currentnumberAffichage = action.payload[1];
+// },
+// paginationAffichageLimit: (state, action) => {
+//   state.filterEmployees = state.data;
+//   state.filterEmployees = state.filterEmployees.slice(
+//     state.firstItem,
+//     action.payload
+//   );
+//   state.currentLastItem = action.payload;
+// },
 // paginationAffichageBtn: (state, action) => {
-//   if (
-//     action.payload === "next" &&
-//     state.currentLastItem < state.data.length
-//   ) {
-//     if (
+//   if (action.payload === "next") {
+//     state.filterEmployees = state.data;
+//     state.filterEmployees = state.filterEmployees.slice(
+//       state.currentLastItem,
 //       parseInt(state.currentLastItem) +
-//         parseInt(state.currentnumberAffichage) >
-//       state.data.length
-//     ) {
-//       const calcLastValueArray =
-//         parseInt(state.currentLastItem) +
-//         parseInt(state.currentnumberAffichage) -
-//         state.data.length;
-//       // console.log(calcLastValueArray);
-//       state.filterEmployees = state.data;
-//       // console.log(current(state.data));
-//       // console.log(state.currentLastItem);
-//       // console.log(state.currentLastItem + (calcLastValueArray));
-//       state.filterEmployees = state.filterEmployees.slice(
-//         state.currentLastItem + calcLastValueArray
-//       );
+//         parseInt(state.currentnumberAffichage)
+//     );
+//     state.currentLastItem =
+//       parseInt(state.currentLastItem) +
+//       parseInt(state.currentnumberAffichage);
+//   }
+//   if (
+//     parseInt(state.currentLastItem) +
+//       parseInt(state.currentnumberAffichage) >
+//     state.data.length
+//   ) {
+//     const calcLastValueArray =
+//       parseInt(state.currentLastItem) +
+//       parseInt(state.currentnumberAffichage) -
+//       state.data.length;
+//     console.log(calcLastValueArray);
+//     state.filterEmployees = state.data;
+//     console.log(current(state.data));
+//     console.log(state.currentLastItem);
+//     state.filterEmployees = state.filterEmployees.slice(
+//       state.currentLastItem + calcLastValueArray,
+//       state.currentLastItem
+//     );
 
-//       state.currentLastItem = state.currentLastItem + calcLastValueArray;
-//     } else {
-//       state.filterEmployees = state.data;
-//       state.filterEmployees = state.filterEmployees.slice(
-//         state.currentLastItem,
-//         parseInt(state.currentLastItem) +
-//           parseInt(state.currentnumberAffichage)
-//       );
-//       state.currentLastItem =
-//         parseInt(state.currentLastItem) +
-//         parseInt(state.currentnumberAffichage);
-//     }
+//     state.currentLastItem = state.currentLastItem + calcLastValueArray;
 //   }
 //   if (action.payload === "prev" && state.currentLastItem > 0) {
-//     // console.log("je prev");
-//     // console.log(state.currentLastItem);
-//     // console.log(state.currentnumberAffichage);
+//     console.log("je prev");
+//     console.log(state.currentLastItem);
+//     console.log(state.currentnumberAffichage);
 //     state.filterEmployees = state.data;
 //     state.filterEmployees = state.filterEmployees.slice(
 //       parseInt(state.currentLastItem) -
@@ -212,15 +203,14 @@ export default editArrayContent.reducer;
 //       parseInt(state.currentLastItem) -
 //       parseInt(state.currentnumberAffichage);
 //   }
-//   // else {
-//   //   console.log("Pour les erreurs " + state.currentLastItem);
-//   // if (state.currentLastItem > state.data) {
-//   //   console.log("Tableau fini");
-//   //   state.errorMaxArray = true;
-//   // }
-//   // if (state.currentLastItem < 1) {
-//   //   state.errorMinArray = true;
-//   //   console.log("debut Tableau");
-//   // }
-//   // }
-// },
+// else {
+//   console.log("Pour les erreurs " + state.currentLastItem);
+//   if (state.currentLastItem > state.data) {
+//     console.log("Tableau fini");
+//     state.errorMaxArray = true;
+//   }
+//   if (state.currentLastItem < 1) {
+//     state.errorMinArray = true;
+//     console.log("debut Tableau");
+//   }
+// }

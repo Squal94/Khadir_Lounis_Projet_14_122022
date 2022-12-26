@@ -2,7 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
-import { paginationAffichageBtn } from "../Features/editArrayContent.slice";
+// import { paginationAffichageBtn } from "../Features/editArrayContent.slice";
+import { paginationFunctionnality } from "../Features/editArrayContent.slice";
 
 const Pagination = () => {
   //   const [currentPage, setCurrentPage] = useState("1");
@@ -24,7 +25,8 @@ const Pagination = () => {
             className="paginationContainer__element__btn--prev"
             id="navPrev"
             onClick={() => {
-              dispatch(paginationAffichageBtn("prev"));
+              dispatch(paginationFunctionnality("prev"));
+              // dispatch(paginationAffichageBtn("prev"));
             }}
           >
             Previous
@@ -33,7 +35,8 @@ const Pagination = () => {
             className="paginationContainer__element__btn--next"
             id="navNext"
             onClick={() => {
-              dispatch(paginationAffichageBtn("next"));
+              dispatch(paginationFunctionnality("next"));
+              // dispatch(paginationAffichageBtn("next"));
             }}
           >
             Next
