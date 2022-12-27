@@ -10,8 +10,9 @@ const Employee = () => {
   return (
     <div>
       <h1>Current Employees</h1>
-      {/* <SelectItem props={states} /> */}
+      <selectItem />
       {/* <DatePicker title={"Date of Birth"} />  */}
+
       <NumberLine />
       <SearchArray />
       <ArrayEmployee />
