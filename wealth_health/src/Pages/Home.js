@@ -6,6 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { newEmployee } from "./../Features/editArrayContent.slice";
 import { saveEmployee } from "./../Utils/functionUtils";
 import { open } from "./../Features/modal.slice";
+import { SelectItem } from "@squal94/selectprojet14";
+import arrowImg from "./../Assets/img/angle-arrow-down.png";
+import states from "../Assets/stateData";
+import departement from "../Assets/departementData";
 
 const Home = () => {
   const [error, setError] = useState(false);
@@ -98,6 +102,14 @@ const Home = () => {
                   required
                 />
               </div>
+              <div className="home__form__state">
+                <label htmlFor="department">State</label>
+                <SelectItem
+                  arrayProps={states}
+                  selectImg={arrowImg}
+                  selectClass="state"
+                />
+              </div>
               <div className="home__form__zipCode">
                 <label className="inputLabel">Zip Code</label>
                 <input
@@ -113,20 +125,11 @@ const Home = () => {
             </fieldset>
             <div className="home__form__department">
               <label htmlFor="department">Department</label>
-
-              <select
-                name="department"
-                id="department"
-                className="inputLabel"
-                // ref={department}
-              >
-                <option value="">--Choose an option--</option>
-                <option value="sales">Sales</option>
-                <option value="marketing">Marketing</option>
-                <option value="engineering">Engineering</option>
-                <option value="resources">Human Resources</option>
-                <option value="legal">Legal</option>
-              </select>
+              <SelectItem
+                arrayProps={departement}
+                selectImg={arrowImg}
+                selectClass="departement"
+              />
             </div>
             <span className="formContainer--error">
               {error && "Email ou mot de passe incorrect"}
