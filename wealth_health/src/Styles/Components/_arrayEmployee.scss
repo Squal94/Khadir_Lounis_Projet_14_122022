@@ -1,6 +1,11 @@
-th,
 td {
-  padding: 10px;
+  padding: 10px 0;
+  background-color: #f9f9f9;
+  border: none;
+}
+
+tbody {
+  background-color: #f9f9f9;
 }
 
 // tr {
@@ -9,9 +14,9 @@ td {
 // }
 
 .thForme {
+  min-width: 120px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }

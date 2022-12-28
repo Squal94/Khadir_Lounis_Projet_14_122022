@@ -1,0 +1,26 @@
+.paginationContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  &__element {
+    width: 1200px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    &--value {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__btn {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+  }
+  &--home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

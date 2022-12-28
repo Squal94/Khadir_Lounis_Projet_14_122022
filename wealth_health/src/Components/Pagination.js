@@ -43,8 +43,8 @@ const Pagination = () => {
           </p>
         </div>
       </div>
-      <div className="paginationContainer__element--home">
-        <NavLink className="paginationContainer__element--home--nav" to="/">
+      <div className="paginationContainer--home">
+        <NavLink className="paginationContainer--home--nav" to="/">
           Home
         </NavLink>
       </div>

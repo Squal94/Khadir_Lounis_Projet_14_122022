@@ -6,13 +6,16 @@ import SearchArray from "../Components/SearchArray";
 
 const Employee = () => {
   return (
-    <div>
+    <div className="EmployeeContainer">
       <h1>Current Employees</h1>
-      {/* <DatePicker title={"Date of Birth"} />  */}
-      <NumberLine />
-      <SearchArray />
+      <div className="EmployeeContainer__option">
+        <NumberLine />
+        <SearchArray />
+      </div>
       <ArrayEmployee />
-      <Pagination />
+      <div className="EmployeeContainer__pagination">
+        <Pagination />
+      </div>
     </div>
   );
 };
