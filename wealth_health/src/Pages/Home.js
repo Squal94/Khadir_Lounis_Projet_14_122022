@@ -10,13 +10,12 @@ import { SelectItem } from "@squal94/selectprojet14";
 import arrowImg from "./../Assets/img/angle-arrow-down.png";
 import states from "../Assets/stateData";
 import departement from "../Assets/departementData";
+import DatePicker from "../Components/DatePicker";
 
 const Home = () => {
   const [error, setError] = useState(false);
   const openModal = useSelector((state) => state.modal.isOpened);
   const dispatch = useDispatch();
-
-  // console.log(openModal);
 
   return (
     <div>
@@ -59,24 +58,26 @@ const Home = () => {
               />
             </div>
             <div className="home__form__birthday">
-              <label className="inputLabel">Date of Birth</label>
-              <input
+              {/* <label className="inputLabel">Date of Birth</label> */}
+              <DatePicker title={"Date of Birth"} />
+              {/* <input
                 className="inputTexte"
                 type="date"
                 id="birthday"
                 //   ref={birthday}
                 required
-              />
+              /> */}
             </div>
             <div className="home__form__beginning">
-              <label className="inputLabel">Start Date</label>
-              <input
+              {/* <label className="inputLabel">Start Date</label> */}
+              <DatePicker title={"Start Date"} />
+              {/* <input
                 className="inputTexte"
                 type="date"
                 id="beginning"
                 //   ref={beginning}
                 required
-              />
+              /> */}
             </div>
             <fieldset>
               <legend className="inputLabel">Address</legend>
