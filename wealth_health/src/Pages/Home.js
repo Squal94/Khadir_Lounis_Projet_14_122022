@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { newEmployee } from "./../Features/editArrayContent.slice";
 import { saveEmployee } from "./../Utils/functionUtils";
 import { open } from "./../Features/modal.slice";
-import { SelectItem } from "@squal94/selectprojet14";
+import { SelectItem } from "@squal94/selectprojet14v2";
 import arrowImg from "./../Assets/img/angle-arrow-down.png";
 import states from "../Assets/stateData";
 import departement from "../Assets/departementData";
