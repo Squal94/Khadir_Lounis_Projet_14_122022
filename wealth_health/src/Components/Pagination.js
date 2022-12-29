@@ -31,6 +31,7 @@ const Pagination = () => {
           >
             Previous
           </p>
+          <p className="paginationContainer__element__btn--counter"></p>
           <p
             className="paginationContainer__element__btn--next"
             id="navNext"

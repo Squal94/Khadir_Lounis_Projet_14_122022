@@ -1,20 +1,29 @@
-td {
-  padding: 10px 0;
-  background-color: #f9f9f9;
-  border: none;
+table {
+  border-collapse: collapse;
+  min-width: 900px;
+  width: auto;
 }
 
 tbody {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  z-index: 5;
+}
+
+tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-// tr {
-//   display: flex;
-//   flex-flow: row nowrap;
-// }
+th,
+td {
+  padding: 10px 20px;
+}
+
+td {
+  border-bottom: 1px solid #dddddd;
+}
 
 .thForme {
-  min-width: 120px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
