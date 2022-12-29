@@ -11,7 +11,6 @@ const Pagination = () => {
   const currentLastItem = useSelector(
     (state) => state.employee.currentLastItem
   );
-  console.log(numberpage);
 
   return (
     <div className="paginationContainer">

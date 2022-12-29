@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const DatePicker = (props) => {
   const [dateTitle, setDateTitle] = useState("");
-  const [dateValue, setDateValue] = useState("");
+  // const [setDateValue] = useState("");
 
   useEffect(() => {
     setDateTitle(props.title);
@@ -19,7 +19,7 @@ const DatePicker = (props) => {
         type="date"
         id={dateTitle.replace(/ /g, "")}
         required
-        onChange={(e) => setDateValue(e.target.value)}
+        // onChange={(e) => setDateValue(e.target.value)}
       />
     </div>
   );

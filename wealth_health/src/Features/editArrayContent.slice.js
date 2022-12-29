@@ -25,14 +25,15 @@ export const editArrayContent = createSlice({
   reducers: {
     newEmployee: (state = [...initialState], action) => {
       state.data.push(action.payload);
+
       state.filterEmployees = employeeFilter(state.data, state.searchTerm);
+      state.currentnumberAffichage = state.filterEmployees.length;
     },
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
     searchEmployee: (state, action) => {
       state.searchTerm = action.payload;
       state.filterEmployees = employeeFilter(state.data, action.payload);
-      return state;
     },
     sortEmployee: (state, action) => {
       toggle = !toggle;
@@ -135,7 +136,6 @@ export const editArrayContent = createSlice({
           }
           break;
         default:
-          return state;
       }
     },
   },
