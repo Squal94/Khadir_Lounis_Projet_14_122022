@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
 // import { paginationAffichageBtn } from "../Features/editArrayContent.slice";
@@ -10,15 +10,22 @@ const Pagination = () => {
   //   const numberLine = useSelector((state) => state.array.numberLine);
   //   const dataLength = useSelector((state) => state.array.length);
   //   const dispatch = useDispatch();
-  // const dataStoreEmployee = useSelector(
-  //   (state) => state.employee.filterEmployees
-  // );
+  const dataLength = useSelector((state) => state.employee.data);
+  const currentLastItem = useSelector(
+    (state) => state.employee.currentLastItem
+  );
+  const currentfirstItem = useSelector((state) => state.employee.firstItem);
+  console.log(currentfirstItem);
+  console.log(currentLastItem);
+  console.log(dataLength.length);
+
   const dispatch = useDispatch();
   return (
     <div className="paginationContainer">
       <div className="paginationContainer__element">
         <p className="paginationContainer__element--value">
-          Showing 0 to 0 of 0 entries
+          Showing {currentfirstItem} to {currentLastItem} of {dataLength.length}{" "}
+          entries
         </p>
         <div className="paginationContainer__element__btn">
           <p
