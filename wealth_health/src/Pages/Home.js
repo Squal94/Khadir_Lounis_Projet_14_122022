@@ -104,7 +104,7 @@ const Home = () => {
                 />
               </div>
               <div className="home__form__state">
-                <label htmlFor="department">State</label>
+                <label className="selectLabel">State</label>
                 <SelectItem
                   arrayProps={states}
                   selectImg={arrowImg}
@@ -125,7 +125,7 @@ const Home = () => {
               </div>
             </fieldset>
             <div className="home__form__department">
-              <label htmlFor="department">Department</label>
+              <label className="selectLabel">Department</label>
               <SelectItem
                 arrayProps={departement}
                 selectImg={arrowImg}

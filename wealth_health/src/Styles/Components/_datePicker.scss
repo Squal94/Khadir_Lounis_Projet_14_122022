@@ -1,8 +1,11 @@
 .datePicker {
   display: flex;
   flex-flow: column nowrap;
-  width: 120px;
-  margin: 15px 0;
+
+  // margin: 15px 0;
+  &__input {
+    width: 170px;
+  }
 }
 
 input[type="date"]:required:invalid::-webkit-datetime-edit {

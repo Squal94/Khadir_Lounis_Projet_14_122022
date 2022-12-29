@@ -12,7 +12,7 @@ const DatePicker = (props) => {
 
   return (
     <div className="datePicker">
-      <label className="datePicker__label">{dateTitle}</label>
+      <label className="datePicker__label inputLabel">{dateTitle}</label>
       <input
         placeholder=" "
         className="datePicker__input"
