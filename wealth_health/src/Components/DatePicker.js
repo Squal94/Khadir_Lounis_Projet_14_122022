@@ -8,7 +8,7 @@ const DatePicker = (props) => {
     setDateTitle(props.title);
   }, [props]);
   // console.log(dateTitle);
-  console.log(dateValue);
+  // console.log(dateValue);
 
   return (
     <div className="datePicker">

@@ -1,3 +1,5 @@
+import states from "../Assets/stateData";
+
 const arrowToogle = (selectItem) => {
   let eltSelected;
   const arrowselectAll = document.querySelectorAll(".thForme");
@@ -34,6 +36,7 @@ const arrowToogle = (selectItem) => {
 
 const saveEmployee = (e, data) => {
   e.preventDefault();
+  let changevalue = "";
   const last = data.length - 1;
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
@@ -45,6 +48,17 @@ const saveEmployee = (e, data) => {
   const state = document.getElementById("state");
   const zipCode = document.getElementById("zipCode");
 
+  function stateAbr() {
+    console.log(state.innerHTML);
+    // let changevalue = states.find((country) => country === state.innerHTML);
+    changevalue = states.filter((obj) => {
+      return obj.name === state.innerHTML;
+    });
+    console.log(changevalue[0].abbreviation);
+  }
+
+  stateAbr();
+
   const employee = {
     id: last + 2,
     firstName: firstName.value,
@@ -54,7 +68,7 @@ const saveEmployee = (e, data) => {
     department: department.innerHTML,
     street: street.value,
     city: city.value,
-    state: state.innerHTML,
+    state: changevalue[0].abbreviation,
     zipCode: zipCode.value,
   };
 

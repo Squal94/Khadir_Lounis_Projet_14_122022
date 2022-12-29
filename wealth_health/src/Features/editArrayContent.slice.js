@@ -99,8 +99,10 @@ export const editArrayContent = createSlice({
         case "prev":
           if (Math.sign(prevValue - state.currentnumberAffichage) === -1) {
             state.firstItem = 0;
+            state.numberPage = 1;
           } else {
             state.firstItem = prevValue - state.currentnumberAffichage;
+            state.numberPage--;
           }
           if (prevValue < 0) {
             state.errorMinArray = true;
@@ -116,6 +118,7 @@ export const editArrayContent = createSlice({
         case "next":
           state.errorMinArray = false;
           state.firstItem = state.currentLastItem;
+          state.numberPage++;
           if (nextValue > state.data.length) {
             state.borderValue = nextValue - state.data.length;
             state.filterEmployees = state.data.slice(

@@ -1,25 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { paginationAffichageBtn } from "../Features/editArrayContent.slice";
 import { paginationFunctionnality } from "../Features/editArrayContent.slice";
 
 const Pagination = () => {
-  //   const [currentPage, setCurrentPage] = useState("1");
-  //   const numberLine = useSelector((state) => state.array.numberLine);
-  //   const dataLength = useSelector((state) => state.array.length);
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const dataLength = useSelector((state) => state.employee.data);
+  const currentfirstItem = useSelector((state) => state.employee.firstItem);
+  const numberpage = useSelector((state) => state.employee.numberPage);
   const currentLastItem = useSelector(
     (state) => state.employee.currentLastItem
   );
-  const currentfirstItem = useSelector((state) => state.employee.firstItem);
-  console.log(currentfirstItem);
-  console.log(currentLastItem);
-  console.log(dataLength.length);
+  console.log(numberpage);
 
-  const dispatch = useDispatch();
   return (
     <div className="paginationContainer">
       <div className="paginationContainer__element">
@@ -38,7 +31,9 @@ const Pagination = () => {
           >
             Previous
           </p>
-          <p className="paginationContainer__element__btn--counter"></p>
+          <p className="paginationContainer__element__btn--counter">
+            {numberpage}
+          </p>
           <p
             className="paginationContainer__element__btn--next"
             id="navNext"
