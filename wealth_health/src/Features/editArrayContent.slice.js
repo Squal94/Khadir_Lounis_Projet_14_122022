@@ -71,12 +71,14 @@ export const editArrayContent = createSlice({
       }
     },
     paginationArrayLine: (state, action) => {
+      state.firstItem = 0;
       state.currentnumberAffichage = action.payload;
       state.filterEmployees = state.data.slice(
         state.firstItem,
         state.currentnumberAffichage
       );
       state.currentLastItem = state.currentnumberAffichage;
+      state.LastItem = state.currentLastItem;
     },
     paginationFunctionnality: (state, action) => {
       const nextValue =
@@ -88,28 +90,38 @@ export const editArrayContent = createSlice({
 
       switch (action.payload) {
         case "prev":
-          if (Math.sign(prevValue - state.currentnumberAffichage) === -1) {
+          // if (Math.sign(prevValue - state.currentnumberAffichage) === -1) {
+          //   state.firstItem = 0;
+          //   state.numberPage = 1;
+          // } else {
+          //   state.firstItem = prevValue - state.currentnumberAffichage;
+          //   state.numberPage--;
+          // }
+          if (prevValue < 1) {
             state.firstItem = 0;
             state.numberPage = 1;
-          } else {
-            state.firstItem = prevValue - state.currentnumberAffichage;
-            state.numberPage--;
-          }
-          if (prevValue < 0) {
+            state.currentLastItem = state.currentnumberAffichage;
+            state.LastItem = state.currentLastItem;
             state.errorMinArray = true;
+            state.filterEmployees = state.data.slice(
+              state.firstItem,
+              state.currentLastItem
+            );
           } else {
+            state.numberPage--;
             state.errorMaxArray = false;
             state.filterEmployees = state.data.slice(
               prevValue,
               state.currentLastItem
             );
             state.currentLastItem = prevValue;
+            state.firstItem = prevValue;
+            state.LastItem = prevValue + state.currentLastItem;
           }
           break;
         case "next":
           state.errorMinArray = false;
           state.firstItem = state.currentLastItem;
-
           if (nextValue > state.data.length) {
             state.numberPage = Math.ceil(
               state.data.length / state.currentnumberAffichage
@@ -119,6 +131,8 @@ export const editArrayContent = createSlice({
               state.currentLastItem,
               parseInt(state.currentLastItem) + parseInt(state.borderValue)
             );
+            state.LastItem =
+              parseInt(state.currentLastItem) + parseInt(state.borderValue);
             state.errorMaxArray = true;
           } else {
             state.numberPage++;
@@ -127,6 +141,7 @@ export const editArrayContent = createSlice({
               nextValue
             );
             state.currentLastItem = nextValue;
+            state.LastItem = state.currentLastItem;
           }
           break;
         default:

@@ -8,9 +8,7 @@ const Pagination = () => {
   const dataLength = useSelector((state) => state.employee.data);
   const currentfirstItem = useSelector((state) => state.employee.firstItem);
   const numberpage = useSelector((state) => state.employee.numberPage);
-  const currentLastItem = useSelector(
-    (state) => state.employee.currentLastItem
-  );
+  const currentLastItem = useSelector((state) => state.employee.LastItem);
 
   return (
     <div className="paginationContainer">
