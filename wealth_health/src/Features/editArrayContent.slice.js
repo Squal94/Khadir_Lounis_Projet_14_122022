@@ -25,15 +25,15 @@ export const editArrayContent = createSlice({
   reducers: {
     newEmployee: (state = [...initialState], action) => {
       state.data.push(action.payload);
-
       state.filterEmployees = employeeFilter(state.data, state.searchTerm);
-      state.currentnumberAffichage = state.filterEmployees.length;
+      // state.currentnumberAffichage = state.filterEmployees.length;
     },
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
     searchEmployee: (state, action) => {
       state.searchTerm = action.payload;
       state.filterEmployees = employeeFilter(state.data, action.payload);
+      return state;
     },
     sortEmployee: (state, action) => {
       toggle = !toggle;
@@ -67,7 +67,7 @@ export const editArrayContent = createSlice({
           sortNumber(state.filterEmployees, toggle, "zipCode");
           break;
         default:
-          return state.filterEmployees;
+          return;
       }
     },
     paginationArrayLine: (state, action) => {
@@ -79,14 +79,14 @@ export const editArrayContent = createSlice({
       state.currentLastItem = state.currentnumberAffichage;
     },
     paginationUtilValues: (state, action) => {
-      const pageNumber = action.payload[0] / action.payload[1];
-      if (Number.isInteger(pageNumber)) {
-        state.numberPage = pageNumber;
-      } else {
-        state.numberPage = Math.ceil(pageNumber);
-      }
-      state.LastItem = action.payload[0];
-      state.currentnumberAffichage = action.payload[1];
+      // const pageNumber = action.payload[0] / action.payload[1];
+      // if (Number.isInteger(pageNumber)) {
+      //   state.numberPage = pageNumber;
+      // } else {
+      //   state.numberPage = Math.ceil(pageNumber);
+      // }
+      // state.LastItem = action.payload[0];
+      // state.currentnumberAffichage = action.payload[1];
     },
     paginationFunctionnality: (state, action) => {
       const nextValue =
