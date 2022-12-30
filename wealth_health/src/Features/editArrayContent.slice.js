@@ -10,7 +10,7 @@ const initialState = {
   arrow: true,
   firstItem: 0,
   LastItem: "",
-  numberPage: "",
+  numberPage: 1,
   currentLastItem: "",
   currentnumberAffichage: 10,
   borderValue: "",
@@ -78,16 +78,6 @@ export const editArrayContent = createSlice({
       );
       state.currentLastItem = state.currentnumberAffichage;
     },
-    paginationUtilValues: (state, action) => {
-      // const pageNumber = action.payload[0] / action.payload[1];
-      // if (Number.isInteger(pageNumber)) {
-      //   state.numberPage = pageNumber;
-      // } else {
-      //   state.numberPage = Math.ceil(pageNumber);
-      // }
-      // state.LastItem = action.payload[0];
-      // state.currentnumberAffichage = action.payload[1];
-    },
     paginationFunctionnality: (state, action) => {
       const nextValue =
         parseInt(state.currentLastItem) +
@@ -119,8 +109,11 @@ export const editArrayContent = createSlice({
         case "next":
           state.errorMinArray = false;
           state.firstItem = state.currentLastItem;
-          state.numberPage++;
+
           if (nextValue > state.data.length) {
+            state.numberPage = Math.ceil(
+              state.data.length / state.currentnumberAffichage
+            );
             state.borderValue = nextValue - state.data.length;
             state.filterEmployees = state.data.slice(
               state.currentLastItem,
@@ -128,6 +121,7 @@ export const editArrayContent = createSlice({
             );
             state.errorMaxArray = true;
           } else {
+            state.numberPage++;
             state.filterEmployees = state.data.slice(
               state.currentLastItem,
               nextValue
@@ -145,7 +139,6 @@ export const {
   newEmployee,
   sortEmployee,
   searchEmployee,
-  paginationUtilValues,
   paginationFunctionnality,
   paginationArrayLine,
 } = editArrayContent.actions;
