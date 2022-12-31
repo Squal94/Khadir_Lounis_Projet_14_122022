@@ -8,6 +8,7 @@ const initialState = {
   data: [...dataEmployee],
   filterEmployees: [...dataEmployee],
   searchTerm: "",
+  totalPages: "",
   arrow: true,
   firstItem: 0,
   LastItem: "",
@@ -36,7 +37,6 @@ export const editArrayContent = createSlice({
         state.firstItem,
         state.currentnumberAffichage
       );
-      return state;
     },
     sortEmployee: (state, action) => {
       toggle = !toggle;
@@ -83,6 +83,9 @@ export const editArrayContent = createSlice({
       );
       state.currentLastItem = state.currentnumberAffichage;
       state.LastItem = state.currentLastItem;
+      state.totalPages = Math.ceil(
+        state.data.length / state.currentnumberAffichage
+      );
     },
     paginationFunctionnality: (state, action) => {
       const nextValue =
@@ -102,11 +105,28 @@ export const editArrayContent = createSlice({
         default:
       }
     },
+    paginationBtn: (state, action) => {
+      state.totalPages = Math.ceil(
+        state.data.length / state.currentnumberAffichage
+      );
+      state.numberPage = action.payload;
+      state.currentLastItem = state.currentnumberAffichage * state.numberPage;
+      state.firstItem =
+        state.currentnumberAffichage * state.numberPage -
+        state.currentnumberAffichage;
+      console.log(state.currentLastItem);
+      console.log(state.firstItem);
+      state.filterEmployees = state.data.slice(
+        state.firstItem,
+        state.currentLastItem
+      );
+    },
   },
 });
 
 export const {
   newEmployee,
+  paginationBtn,
   sortEmployee,
   searchEmployee,
   paginationFunctionnality,

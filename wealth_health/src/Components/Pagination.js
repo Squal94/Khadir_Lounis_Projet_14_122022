@@ -1,14 +1,22 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { paginationFunctionnality } from "../Features/editArrayContent.slice";
+import {
+  paginationFunctionnality,
+  paginationBtn,
+} from "../Features/editArrayContent.slice";
 
 const Pagination = () => {
   const dispatch = useDispatch();
   const dataLength = useSelector((state) => state.employee.data);
   const currentfirstItem = useSelector((state) => state.employee.firstItem);
-  const numberpage = useSelector((state) => state.employee.numberPage);
+  // const numberpage = useSelector((state) => state.employee.numberPage);
   const currentLastItem = useSelector((state) => state.employee.LastItem);
+  const totalPages = useSelector((state) => state.employee.totalPages);
+  let arrayPages = [];
+  for (let i = 1; i <= totalPages; i++) {
+    arrayPages.push(i);
+  }
 
   return (
     <div className="paginationContainer">
@@ -28,9 +36,23 @@ const Pagination = () => {
           >
             Previous
           </p>
-          <p className="paginationContainer__element__btn--counter">
+          <ul className="paginationContainer__element__btn--list">
+            {arrayPages.map((item) => (
+              <li
+                key={item}
+                className="paginationContainer__element__btn--list--item"
+                onClick={() => {
+                  dispatch(paginationBtn(item));
+                }}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          {/* <p className="paginationContainer__element__btn--counter">
+            
             {numberpage}
-          </p>
+          </p> */}
           <p
             className="paginationContainer__element__btn--next"
             id="navNext"

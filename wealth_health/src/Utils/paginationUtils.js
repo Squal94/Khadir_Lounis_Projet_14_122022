@@ -4,18 +4,18 @@ function paginationPrev(data, prevValue) {
     data.numberPage = 1;
     data.currentLastItem = data.currentnumberAffichage;
     data.LastItem = data.currentLastItem;
-    data.errorMinArray = true;
     data.filterEmployees = data.data.slice(
       data.firstItem,
       data.currentLastItem
     );
+    data.errorMinArray = true;
   } else {
     data.numberPage--;
-    data.errorMaxArray = false;
     data.filterEmployees = data.data.slice(prevValue, data.currentLastItem);
     data.currentLastItem = prevValue;
     data.firstItem = prevValue;
     data.LastItem = prevValue + data.currentLastItem;
+    data.errorMaxArray = false;
   }
 }
 
@@ -33,9 +33,9 @@ function paginationNext(data, nextValue) {
     data.errorMaxArray = true;
   } else if (nextValue === data.data.length) {
     data.numberPage = data.data.length / data.currentnumberAffichage;
-    data.errorMaxArray = true;
     data.filterEmployees = data.data.slice(data.currentLastItem, nextValue);
     data.LastItem = nextValue;
+    data.errorMaxArray = true;
   } else {
     data.numberPage++;
     data.filterEmployees = data.data.slice(data.currentLastItem, nextValue);
