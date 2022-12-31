@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dataEmployee from "../Assets/Data.json";
 import { sortAZ, sortNumber, sortDate } from "./../Utils/sortUtils";
+import { paginationPrev, paginationNext } from "./../Utils/paginationUtils";
 import { employeeFilter } from "./../Utils/filterUtils";
 
 const initialState = {
@@ -122,52 +123,10 @@ export const editArrayContent = createSlice({
 
       switch (action.payload) {
         case "prev":
-          if (prevValue < 1) {
-            state.firstItem = 0;
-            state.numberPage = 1;
-            state.currentLastItem = state.currentnumberAffichage;
-            state.LastItem = state.currentLastItem;
-            state.errorMinArray = true;
-            state.filterEmployees = state.data.slice(
-              state.firstItem,
-              state.currentLastItem
-            );
-          } else {
-            state.numberPage--;
-            state.errorMaxArray = false;
-            state.filterEmployees = state.data.slice(
-              prevValue,
-              state.currentLastItem
-            );
-            state.currentLastItem = prevValue;
-            state.firstItem = prevValue;
-            state.LastItem = prevValue + state.currentLastItem;
-          }
+          paginationPrev(state, prevValue);
           break;
         case "next":
-          state.errorMinArray = false;
-          state.firstItem = state.currentLastItem;
-          if (nextValue > state.data.length) {
-            state.numberPage = Math.ceil(
-              state.data.length / state.currentnumberAffichage
-            );
-            state.borderValue = nextValue - state.data.length;
-            state.filterEmployees = state.data.slice(
-              state.currentLastItem,
-              parseInt(state.currentLastItem) + parseInt(state.borderValue)
-            );
-            state.LastItem =
-              parseInt(state.currentLastItem) + parseInt(state.borderValue);
-            state.errorMaxArray = true;
-          } else {
-            state.numberPage++;
-            state.filterEmployees = state.data.slice(
-              state.currentLastItem,
-              nextValue
-            );
-            state.currentLastItem = nextValue;
-            state.LastItem = state.currentLastItem;
-          }
+          paginationNext(state, nextValue);
           break;
         default:
       }
@@ -192,3 +151,64 @@ export default editArrayContent.reducer;
 //   state.firstItem = prevValue - state.currentnumberAffichage;
 //   state.numberPage--;
 // }
+
+// paginationFunctionnality: (state, action) => {
+//   const nextValue =
+//     parseInt(state.currentLastItem) +
+//     parseInt(state.currentnumberAffichage);
+//   const prevValue =
+//     parseInt(state.currentLastItem) -
+//     parseInt(state.currentnumberAffichage);
+
+//   switch (action.payload) {
+//     case "prev":
+//       if (prevValue < 1) {
+//         state.firstItem = 0;
+//         state.numberPage = 1;
+//         state.currentLastItem = state.currentnumberAffichage;
+//         state.LastItem = state.currentLastItem;
+//         state.errorMinArray = true;
+//         state.filterEmployees = state.data.slice(
+//           state.firstItem,
+//           state.currentLastItem
+//         );
+//       } else {
+//         state.numberPage--;
+//         state.errorMaxArray = false;
+//         state.filterEmployees = state.data.slice(
+//           prevValue,
+//           state.currentLastItem
+//         );
+//         state.currentLastItem = prevValue;
+//         state.firstItem = prevValue;
+//         state.LastItem = prevValue + state.currentLastItem;
+//       }
+//       break;
+//     case "next":
+//       state.errorMinArray = false;
+//       state.firstItem = state.currentLastItem;
+//       if (nextValue > state.data.length) {
+//         state.numberPage = Math.ceil(
+//           state.data.length / state.currentnumberAffichage
+//         );
+//         state.borderValue = nextValue - state.data.length;
+//         state.filterEmployees = state.data.slice(
+//           state.currentLastItem,
+//           parseInt(state.currentLastItem) + parseInt(state.borderValue)
+//         );
+//         state.LastItem =
+//           parseInt(state.currentLastItem) + parseInt(state.borderValue);
+//         state.errorMaxArray = true;
+//       } else {
+//         state.numberPage++;
+//         state.filterEmployees = state.data.slice(
+//           state.currentLastItem,
+//           nextValue
+//         );
+//         state.currentLastItem = nextValue;
+//         state.LastItem = state.currentLastItem;
+//       }
+//       break;
+//     default:
+//   }
+// },
