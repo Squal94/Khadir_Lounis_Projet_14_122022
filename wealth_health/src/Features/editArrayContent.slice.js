@@ -90,13 +90,6 @@ export const editArrayContent = createSlice({
 
       switch (action.payload) {
         case "prev":
-          // if (Math.sign(prevValue - state.currentnumberAffichage) === -1) {
-          //   state.firstItem = 0;
-          //   state.numberPage = 1;
-          // } else {
-          //   state.firstItem = prevValue - state.currentnumberAffichage;
-          //   state.numberPage--;
-          // }
           if (prevValue < 1) {
             state.firstItem = 0;
             state.numberPage = 1;
@@ -159,3 +152,11 @@ export const {
 } = editArrayContent.actions;
 
 export default editArrayContent.reducer;
+
+// if (Math.sign(prevValue - state.currentnumberAffichage) === -1) {
+//   state.firstItem = 0;
+//   state.numberPage = 1;
+// } else {
+//   state.firstItem = prevValue - state.currentnumberAffichage;
+//   state.numberPage--;
+// }
