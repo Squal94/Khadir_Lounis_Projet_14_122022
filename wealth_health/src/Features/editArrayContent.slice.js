@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dataEmployee from "../Assets/Data.json";
 import { sortAZ, sortNumber, sortDate } from "./../Utils/sortUtils";
-import { paginationPrev, paginationNext } from "./../Utils/paginationUtils";
+import {
+  paginationPrev,
+  paginationNext,
+  paginationBtnFunc,
+} from "./../Utils/paginationUtils";
 import { employeeFilter } from "./../Utils/filterUtils";
 
 const initialState = {
@@ -106,30 +110,7 @@ export const editArrayContent = createSlice({
       }
     },
     paginationBtn: (state, action) => {
-      state.totalPages = Math.ceil(
-        state.data.length / state.currentnumberAffichage
-      );
-      state.numberPage = action.payload;
-      state.currentLastItem = state.currentnumberAffichage * state.numberPage;
-      state.firstItem =
-        state.currentnumberAffichage * state.numberPage -
-        state.currentnumberAffichage;
-      console.log(state.currentLastItem);
-      console.log(state.firstItem);
-      state.filterEmployees = state.data.slice(
-        state.firstItem,
-        state.currentLastItem
-      );
-      state.LastItem = state.currentLastItem;
-      if (state.currentnumberAffichage * state.numberPage > state.data.length) {
-        state.borderValue =
-          state.currentnumberAffichage * state.numberPage - state.data.length;
-        console.log(state.borderValue);
-        state.firstItem =
-          state.currentnumberAffichage * state.numberPage -
-          state.currentnumberAffichage;
-        state.LastItem = state.firstItem + state.borderValue;
-      }
+      paginationBtnFunc(state, action.payload);
     },
   },
 });
