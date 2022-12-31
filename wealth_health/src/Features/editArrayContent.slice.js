@@ -32,7 +32,10 @@ export const editArrayContent = createSlice({
     editEmployee: (state, action) => {},
     searchEmployee: (state, action) => {
       state.searchTerm = action.payload;
-      state.filterEmployees = employeeFilter(state.data, action.payload);
+      state.filterEmployees = employeeFilter(state.data, action.payload).slice(
+        state.firstItem,
+        state.currentnumberAffichage
+      );
       return state;
     },
     sortEmployee: (state, action) => {
@@ -40,31 +43,60 @@ export const editArrayContent = createSlice({
       toggle ? (state.arrow = true) : (state.arrow = false);
       switch (action.payload) {
         case "columnFirst":
-          sortAZ(state.filterEmployees, toggle, "firstName");
+          state.filterEmployees = sortAZ(state, toggle, "firstName").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
           break;
         case "columnLast":
-          sortAZ(state.filterEmployees, toggle, "lastName");
+          state.filterEmployees = sortAZ(state, toggle, "lastName").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
           break;
         case "columnStart":
-          sortDate(state.filterEmployees, toggle, "StartDate");
+          state.filterEmployees = sortDate(state, toggle, "StartDate").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
+
           break;
         case "columnDepartement":
-          sortAZ(state.filterEmployees, toggle, "street");
+          state.filterEmployees = sortAZ(state, toggle, "departement").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
           break;
         case "columnBirth":
-          sortDate(state.filterEmployees, toggle, "DateofBirth");
+          state.filterEmployees = sortDate(state, toggle, "DateofBirth").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
+
           break;
         case "columnStreet":
-          sortAZ(state.filterEmployees, toggle, "street");
+          state.filterEmployees = sortAZ(state, toggle, "street").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
           break;
         case "columnCity":
-          sortAZ(state.filterEmployees, toggle, "city");
+          state.filterEmployees = sortAZ(state, toggle, "city").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
           break;
         case "columnState":
-          sortNumber(state.filterEmployees, toggle, "zipCode");
+          state.filterEmployees = sortNumber(state, toggle, "zipCode").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
           break;
         case "columnZip":
-          sortNumber(state.filterEmployees, toggle, "zipCode");
+          state.filterEmployees = sortNumber(state, toggle, "zipCode").slice(
+            state.firstItem,
+            state.currentnumberAffichage
+          );
           break;
         default:
           return;
