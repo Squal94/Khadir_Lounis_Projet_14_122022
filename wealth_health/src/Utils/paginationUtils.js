@@ -1,5 +1,5 @@
 function paginationPrev(data, prevValue) {
-  if (prevValue < 1) {
+  if (prevValue <= 1) {
     data.firstItem = 0;
     data.numberPage = 1;
     data.currentLastItem = data.currentnumberAffichage;
@@ -31,6 +31,11 @@ function paginationNext(data, nextValue) {
     );
     data.LastItem = parseInt(data.currentLastItem) + parseInt(data.borderValue);
     data.errorMaxArray = true;
+  } else if (nextValue === data.data.length) {
+    data.numberPage = data.data.length / data.currentnumberAffichage;
+    data.errorMaxArray = true;
+    data.filterEmployees = data.data.slice(data.currentLastItem, nextValue);
+    data.LastItem = nextValue;
   } else {
     data.numberPage++;
     data.filterEmployees = data.data.slice(data.currentLastItem, nextValue);
