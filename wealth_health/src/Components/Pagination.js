@@ -10,7 +10,6 @@ const Pagination = () => {
   const dispatch = useDispatch();
   const dataLength = useSelector((state) => state.employee.data);
   const currentfirstItem = useSelector((state) => state.employee.firstItem);
-  // const numberpage = useSelector((state) => state.employee.numberPage);
   const currentLastItem = useSelector((state) => state.employee.LastItem);
   const totalPages = useSelector((state) => state.employee.totalPages);
   let arrayPages = [];
@@ -31,7 +30,6 @@ const Pagination = () => {
             id="navPrev"
             onClick={() => {
               dispatch(paginationFunctionnality("prev"));
-              // dispatch(paginationAffichageBtn("prev"));
             }}
           >
             Previous
@@ -49,16 +47,11 @@ const Pagination = () => {
               </li>
             ))}
           </ul>
-          {/* <p className="paginationContainer__element__btn--counter">
-            
-            {numberpage}
-          </p> */}
           <p
             className="paginationContainer__element__btn--next"
             id="navNext"
             onClick={() => {
               dispatch(paginationFunctionnality("next"));
-              // dispatch(paginationAffichageBtn("next"));
             }}
           >
             Next

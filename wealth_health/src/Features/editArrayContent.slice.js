@@ -120,10 +120,10 @@ export const editArrayContent = createSlice({
 export const {
   newEmployee,
   paginationBtn,
-  sortEmployee,
-  searchEmployee,
   paginationFunctionnality,
   paginationArrayLine,
+  searchEmployee,
+  sortEmployee,
 } = editArrayContent.actions;
 
 export default editArrayContent.reducer;
