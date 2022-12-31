@@ -1,11 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dataEmployee from "../Assets/Data.json";
 import { sortAZ, sortNumber, sortDate } from "./../Utils/sortUtils";
-import {
-  paginationPrev,
-  paginationNext,
-  paginationBtnFunc,
-} from "./../Utils/paginationUtils";
+import { paginationFunc } from "./../Utils/paginationUtils";
 import { employeeFilter } from "./../Utils/filterUtils";
 
 const initialState = {
@@ -17,6 +13,7 @@ const initialState = {
   firstItem: 0,
   LastItem: "",
   numberPage: 1,
+  currentPage: 1,
   currentLastItem: "",
   currentnumberAffichage: 10,
   borderValue: "",
@@ -92,25 +89,30 @@ export const editArrayContent = createSlice({
       );
     },
     paginationFunctionnality: (state, action) => {
-      const nextValue =
-        parseInt(state.currentLastItem) +
-        parseInt(state.currentnumberAffichage);
-      const prevValue =
-        parseInt(state.currentLastItem) -
-        parseInt(state.currentnumberAffichage);
-
       switch (action.payload) {
         case "prev":
-          paginationPrev(state, prevValue);
+          if (state.numberPage - 1 < 1) {
+            state.errorMinArray = true;
+          } else {
+            state.errorMinArray = false;
+            state.numberPage--;
+            paginationFunc(state, state.numberPage);
+          }
           break;
         case "next":
-          paginationNext(state, nextValue);
+          if (state.numberPage + 1 > state.totalPages) {
+            state.errorMaxArray = true;
+          } else {
+            state.errorMaxArray = false;
+            state.numberPage++;
+            paginationFunc(state, state.numberPage);
+          }
           break;
         default:
       }
     },
     paginationBtn: (state, action) => {
-      paginationBtnFunc(state, action.payload);
+      paginationFunc(state, action.payload);
     },
   },
 });
