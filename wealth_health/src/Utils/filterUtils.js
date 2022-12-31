@@ -13,4 +13,8 @@ function employeeFilter(data, value) {
   );
 }
 
-export { employeeFilter };
+function arraySlice(data, firstValue, LastValue) {
+  return data.slice(firstValue, LastValue);
+}
+
+export { employeeFilter, arraySlice };

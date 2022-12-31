@@ -27,7 +27,6 @@ export const editArrayContent = createSlice({
     newEmployee: (state = [...initialState], action) => {
       state.data.push(action.payload);
       state.filterEmployees = employeeFilter(state.data, state.searchTerm);
-      // state.currentnumberAffichage = state.filterEmployees.length;
     },
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
@@ -44,60 +43,32 @@ export const editArrayContent = createSlice({
       toggle ? (state.arrow = true) : (state.arrow = false);
       switch (action.payload) {
         case "columnFirst":
-          state.filterEmployees = sortAZ(state, toggle, "firstName").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortAZ(state, toggle, "firstName");
           break;
         case "columnLast":
-          state.filterEmployees = sortAZ(state, toggle, "lastName").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortAZ(state, toggle, "lastName");
           break;
         case "columnStart":
-          state.filterEmployees = sortDate(state, toggle, "StartDate").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortDate(state, toggle, "StartDate");
 
           break;
         case "columnDepartement":
-          state.filterEmployees = sortAZ(state, toggle, "departement").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortAZ(state, toggle, "departement");
           break;
         case "columnBirth":
-          state.filterEmployees = sortDate(state, toggle, "DateofBirth").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
-
+          state.filterEmployees = sortDate(state, toggle, "DateofBirth");
           break;
         case "columnStreet":
-          state.filterEmployees = sortAZ(state, toggle, "street").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortAZ(state, toggle, "street");
           break;
         case "columnCity":
-          state.filterEmployees = sortAZ(state, toggle, "city").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortAZ(state, toggle, "city");
           break;
         case "columnState":
-          state.filterEmployees = sortNumber(state, toggle, "zipCode").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortNumber(state, toggle, "zipCode");
           break;
         case "columnZip":
-          state.filterEmployees = sortNumber(state, toggle, "zipCode").slice(
-            state.firstItem,
-            state.currentnumberAffichage
-          );
+          state.filterEmployees = sortNumber(state, toggle, "zipCode");
           break;
         default:
           return;
@@ -143,72 +114,3 @@ export const {
 } = editArrayContent.actions;
 
 export default editArrayContent.reducer;
-
-// if (Math.sign(prevValue - state.currentnumberAffichage) === -1) {
-//   state.firstItem = 0;
-//   state.numberPage = 1;
-// } else {
-//   state.firstItem = prevValue - state.currentnumberAffichage;
-//   state.numberPage--;
-// }
-
-// paginationFunctionnality: (state, action) => {
-//   const nextValue =
-//     parseInt(state.currentLastItem) +
-//     parseInt(state.currentnumberAffichage);
-//   const prevValue =
-//     parseInt(state.currentLastItem) -
-//     parseInt(state.currentnumberAffichage);
-
-//   switch (action.payload) {
-//     case "prev":
-//       if (prevValue < 1) {
-//         state.firstItem = 0;
-//         state.numberPage = 1;
-//         state.currentLastItem = state.currentnumberAffichage;
-//         state.LastItem = state.currentLastItem;
-//         state.errorMinArray = true;
-//         state.filterEmployees = state.data.slice(
-//           state.firstItem,
-//           state.currentLastItem
-//         );
-//       } else {
-//         state.numberPage--;
-//         state.errorMaxArray = false;
-//         state.filterEmployees = state.data.slice(
-//           prevValue,
-//           state.currentLastItem
-//         );
-//         state.currentLastItem = prevValue;
-//         state.firstItem = prevValue;
-//         state.LastItem = prevValue + state.currentLastItem;
-//       }
-//       break;
-//     case "next":
-//       state.errorMinArray = false;
-//       state.firstItem = state.currentLastItem;
-//       if (nextValue > state.data.length) {
-//         state.numberPage = Math.ceil(
-//           state.data.length / state.currentnumberAffichage
-//         );
-//         state.borderValue = nextValue - state.data.length;
-//         state.filterEmployees = state.data.slice(
-//           state.currentLastItem,
-//           parseInt(state.currentLastItem) + parseInt(state.borderValue)
-//         );
-//         state.LastItem =
-//           parseInt(state.currentLastItem) + parseInt(state.borderValue);
-//         state.errorMaxArray = true;
-//       } else {
-//         state.numberPage++;
-//         state.filterEmployees = state.data.slice(
-//           state.currentLastItem,
-//           nextValue
-//         );
-//         state.currentLastItem = nextValue;
-//         state.LastItem = state.currentLastItem;
-//       }
-//       break;
-//     default:
-//   }
-// },

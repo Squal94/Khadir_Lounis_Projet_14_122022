@@ -27,7 +27,7 @@ const sortAZ = (data, boolean, k) => {
             return 0;
           }
         }))
-  );
+  ).slice(data.firstItem, data.currentnumberAffichage);
 };
 
 // a, b;
@@ -41,7 +41,7 @@ const sortNumber = (data, boolean, k) => {
       : (data.filterEmployees = data.data.sort((a, b) => {
           return b[k] - a[k];
         }))
-  );
+  ).slice(data.firstItem, data.currentnumberAffichage);
 };
 
 const sortDate = (data, boolean, k) => {
@@ -53,7 +53,7 @@ const sortDate = (data, boolean, k) => {
       : (data.filterEmployees = data.data.sort((a, b) => {
           return new Date(b[k]).valueOf() - new Date(a[k]).valueOf();
         }))
-  );
+  ).slice(data.firstItem, data.currentnumberAffichage);
 };
 
 export { sortAZ, sortNumber, sortDate };
