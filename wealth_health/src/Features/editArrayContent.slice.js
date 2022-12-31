@@ -120,6 +120,16 @@ export const editArrayContent = createSlice({
         state.firstItem,
         state.currentLastItem
       );
+      state.LastItem = state.currentLastItem;
+      if (state.currentnumberAffichage * state.numberPage > state.data.length) {
+        state.borderValue =
+          state.currentnumberAffichage * state.numberPage - state.data.length;
+        console.log(state.borderValue);
+        state.firstItem =
+          state.currentnumberAffichage * state.numberPage -
+          state.currentnumberAffichage;
+        state.LastItem = state.firstItem + state.borderValue;
+      }
     },
   },
 });
