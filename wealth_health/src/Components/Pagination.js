@@ -58,18 +58,26 @@ const Pagination = () => {
   let spreadAffichageNext = null;
   let spreadAffichagePrev = null;
 
-  if (currentPage < arrayPages.length - maxPageNumberLimit) {
+  if (currentPage < arrayPages.length - pageNumberLimit) {
     spreadAffichageNext = (
       <li className="paginationContainer__element__btn--list--item">...</li>
     );
   }
 
-  if (currentPage > maxPageNumberLimit) {
+  if (currentPage > pageNumberLimit - minPageNumberLimit) {
     spreadAffichagePrev = (
       <li className="paginationContainer__element__btn--list--item">...</li>
     );
   }
 
+  if (currentPage > maxPageNumberLimit) {
+    setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+    setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+  }
+  if (currentPage - 1 < minPageNumberLimit) {
+    setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+    setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+  }
   return (
     <div className="paginationContainer">
       <div className="paginationContainer__element">
