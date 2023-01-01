@@ -33,6 +33,11 @@ export const editArrayContent = createSlice({
     deleteEmployee: (state, action) => {},
     editEmployee: (state, action) => {},
     searchEmployee: (state, action) => {
+      state.firstItem = 0;
+      state.currentLastItem = state.currentnumberAffichage;
+      state.LastItem = state.currentLastItem;
+      state.numberPage = 1;
+      state.currentPage = 1;
       state.searchTerm = action.payload;
       state.filterEmployees = employeeFilter(state.data, action.payload).slice(
         state.firstItem,

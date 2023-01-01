@@ -15,9 +15,9 @@ const Pagination = () => {
   const currentPage = useSelector((state) => state.employee.numberPage);
   console.log(currentPage);
 
-  // Pagination spread
-  const pageNumberLimit = 8;
-  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(8);
+  // Pagination spread variables
+  const pageNumberLimit = 5;
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
   let spreadAffichageNext = null;
@@ -31,31 +31,30 @@ const Pagination = () => {
 
   // Functions and conditions
 
-  const paginationSpread = (numberBtn) =>
-    numberBtn.map((item) => {
-      if (item < maxPageNumberLimit + 1 && item > minPageNumberLimit) {
-        return (
-          <li
-            key={item}
-            id={item}
-            onClick={() => {
-              dispatch(paginationBtn(item));
-            }}
-            className={
-              currentPage === item
-                ? "paginationContainer__element__btn--list--item active"
-                : "paginationContainer__element__btn--list--item"
-            }
-          >
-            {item}
-          </li>
-        );
-      } else {
-        return null;
-      }
-    });
+  const paginationSpread = arrayPages.map((item) => {
+    if (item < maxPageNumberLimit + 1 && item > minPageNumberLimit) {
+      return (
+        <li
+          key={item}
+          id={item}
+          onClick={() => {
+            dispatch(paginationBtn(item));
+          }}
+          className={
+            currentPage === item
+              ? "paginationContainer__element__btn--list--item active"
+              : "paginationContainer__element__btn--list--item"
+          }
+        >
+          {item}
+        </li>
+      );
+    } else {
+      return null;
+    }
+  });
 
-  if (currentPage < arrayPages.length - pageNumberLimit) {
+  if (currentPage - 1 < arrayPages.length - pageNumberLimit) {
     spreadAffichageNext = (
       <li className="paginationContainer__element__btn--list--item">...</li>
     );

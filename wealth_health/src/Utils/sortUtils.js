@@ -1,8 +1,11 @@
 import { current } from "@reduxjs/toolkit";
 
 const sortAZ = (data, boolean, k) => {
-  // console.log(current(data.data));
-  // console.log(current(data.filterEmployees));
+  data.firstItem = 0;
+  data.currentLastItem = data.currentnumberAffichage;
+  data.LastItem = data.currentLastItem;
+  data.numberPage = 1;
+  data.currentPage = 1;
   return current(
     boolean
       ? (data.filterEmployees = data.data.sort((a, b) => {
@@ -33,6 +36,11 @@ const sortAZ = (data, boolean, k) => {
 // a, b;
 
 const sortNumber = (data, boolean, k) => {
+  data.firstItem = 0;
+  data.currentLastItem = data.currentnumberAffichage;
+  data.LastItem = data.currentLastItem;
+  data.numberPage = 1;
+  data.currentPage = 1;
   return current(
     boolean
       ? (data.filterEmployees = data.data.sort((a, b) => {
@@ -45,6 +53,11 @@ const sortNumber = (data, boolean, k) => {
 };
 
 const sortDate = (data, boolean, k) => {
+  data.firstItem = 0;
+  data.currentLastItem = data.currentnumberAffichage;
+  data.LastItem = data.currentLastItem;
+  data.numberPage = 1;
+  data.currentPage = 1;
   return current(
     boolean
       ? (data.filterEmployees = data.data.sort((a, b) => {
