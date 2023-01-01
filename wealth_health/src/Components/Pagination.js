@@ -16,9 +16,12 @@ const Pagination = () => {
   console.log(currentPage);
 
   // Pagination spread
-  const [pageNumberLimit, setpageNumberLimit] = useState(5);
-  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
+  const pageNumberLimit = 8;
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(8);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+  let spreadAffichageNext = null;
+  let spreadAffichagePrev = null;
 
   // pagination array btn
   let arrayPages = [];
@@ -26,37 +29,31 @@ const Pagination = () => {
     arrayPages.push(i);
   }
 
-  const spreadVisuelNext = () => {
-    if (arrayPages.length > maxPageNumberLimit) {
-      <li>...</li>;
-    }
-  };
+  // Functions and conditions
 
-  const paginationSpread = arrayPages.map((item) => {
-    if (item < maxPageNumberLimit + 1 && item > minPageNumberLimit) {
-      return (
-        <li
-          key={item}
-          id={item}
-          onClick={() => {
-            dispatch(paginationBtn(item));
-          }}
-          className={
-            currentPage === item
-              ? "paginationContainer__element__btn--list--item active"
-              : "paginationContainer__element__btn--list--item"
-          }
-        >
-          {item}
-        </li>
-      );
-    } else {
-      return null;
-    }
-  });
-
-  let spreadAffichageNext = null;
-  let spreadAffichagePrev = null;
+  const paginationSpread = (numberBtn) =>
+    numberBtn.map((item) => {
+      if (item < maxPageNumberLimit + 1 && item > minPageNumberLimit) {
+        return (
+          <li
+            key={item}
+            id={item}
+            onClick={() => {
+              dispatch(paginationBtn(item));
+            }}
+            className={
+              currentPage === item
+                ? "paginationContainer__element__btn--list--item active"
+                : "paginationContainer__element__btn--list--item"
+            }
+          >
+            {item}
+          </li>
+        );
+      } else {
+        return null;
+      }
+    });
 
   if (currentPage < arrayPages.length - pageNumberLimit) {
     spreadAffichageNext = (
