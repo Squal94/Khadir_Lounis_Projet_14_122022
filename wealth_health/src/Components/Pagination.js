@@ -64,7 +64,7 @@ const Pagination = () => {
     );
   }
 
-  if (currentPage > 1) {
+  if (currentPage > maxPageNumberLimit) {
     spreadAffichagePrev = (
       <li className="paginationContainer__element__btn--list--item">...</li>
     );
