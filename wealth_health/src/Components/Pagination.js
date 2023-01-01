@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {
@@ -12,9 +12,62 @@ const Pagination = () => {
   const currentfirstItem = useSelector((state) => state.employee.firstItem);
   const currentLastItem = useSelector((state) => state.employee.LastItem);
   const totalPages = useSelector((state) => state.employee.totalPages);
+  const currentPage = useSelector((state) => state.employee.numberPage);
+  console.log(currentPage);
+
+  // Pagination spread
+  const [pageNumberLimit, setpageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+  // pagination array btn
   let arrayPages = [];
   for (let i = 1; i <= totalPages; i++) {
     arrayPages.push(i);
+  }
+
+  const spreadVisuelNext = () => {
+    if (arrayPages.length > maxPageNumberLimit) {
+      <li>...</li>;
+    }
+  };
+
+  const paginationSpread = arrayPages.map((item) => {
+    if (item < maxPageNumberLimit + 1 && item > minPageNumberLimit) {
+      return (
+        <li
+          key={item}
+          id={item}
+          onClick={() => {
+            dispatch(paginationBtn(item));
+          }}
+          className={
+            currentPage === item
+              ? "paginationContainer__element__btn--list--item active"
+              : "paginationContainer__element__btn--list--item"
+          }
+        >
+          {item}
+        </li>
+      );
+    } else {
+      return null;
+    }
+  });
+
+  let spreadAffichageNext = null;
+  let spreadAffichagePrev = null;
+
+  if (currentPage < arrayPages.length - maxPageNumberLimit) {
+    spreadAffichageNext = (
+      <li className="paginationContainer__element__btn--list--item">...</li>
+    );
+  }
+
+  if (currentPage > 1) {
+    spreadAffichagePrev = (
+      <li className="paginationContainer__element__btn--list--item">...</li>
+    );
   }
 
   return (
@@ -35,17 +88,9 @@ const Pagination = () => {
             Previous
           </p>
           <ul className="paginationContainer__element__btn--list">
-            {arrayPages.map((item) => (
-              <li
-                key={item}
-                className="paginationContainer__element__btn--list--item"
-                onClick={() => {
-                  dispatch(paginationBtn(item));
-                }}
-              >
-                {item}
-              </li>
-            ))}
+            {spreadAffichagePrev}
+            {paginationSpread}
+            {spreadAffichageNext}
           </ul>
           <p
             className="paginationContainer__element__btn--next"
