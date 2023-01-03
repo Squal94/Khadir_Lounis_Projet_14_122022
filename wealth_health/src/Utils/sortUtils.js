@@ -11,9 +11,9 @@ const sortAZ = (data, boolean, k) => {
       ? (data.filterEmployees = data.data.sort((a, b) => {
           const A = a[k].toLowerCase();
           const B = b[k].toLowerCase();
-          if (A > B) {
+          if (B > A) {
             return 1;
-          } else if (B > A) {
+          } else if (A > B) {
             return -1;
           } else {
             return 0;
@@ -22,9 +22,9 @@ const sortAZ = (data, boolean, k) => {
       : (data.filterEmployees = data.data.sort((a, b) => {
           const A = a[k].toLowerCase();
           const B = b[k].toLowerCase();
-          if (B > A) {
+          if (A > B) {
             return 1;
-          } else if (A > B) {
+          } else if (B > A) {
             return -1;
           } else {
             return 0;

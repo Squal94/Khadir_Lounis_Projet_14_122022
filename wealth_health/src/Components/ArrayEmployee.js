@@ -25,7 +25,6 @@ const ArrayEmployee = () => {
               id="columnFirst"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               First Name <Arrow />
@@ -37,7 +36,6 @@ const ArrayEmployee = () => {
               id="columnLast"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               Last Name <Arrow />
@@ -49,7 +47,6 @@ const ArrayEmployee = () => {
               id="columnStart"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               Start Date <Arrow />
@@ -61,7 +58,6 @@ const ArrayEmployee = () => {
               id="columnDepartement"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               Departement <Arrow />
@@ -73,7 +69,6 @@ const ArrayEmployee = () => {
               id="columnBirth"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               Date of Birth <Arrow />
@@ -85,7 +80,6 @@ const ArrayEmployee = () => {
               id="columnStreet"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               Street <Arrow />
@@ -97,7 +91,6 @@ const ArrayEmployee = () => {
               id="columnCity"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               City <Arrow />
@@ -109,7 +102,6 @@ const ArrayEmployee = () => {
               id="columnState"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               State <Arrow />
@@ -121,7 +113,6 @@ const ArrayEmployee = () => {
               id="columnZip"
               onClick={(e) => {
                 dispatch(sortEmployee(e.target.id));
-                arrowToogle();
               }}
             >
               Zip Code <Arrow />

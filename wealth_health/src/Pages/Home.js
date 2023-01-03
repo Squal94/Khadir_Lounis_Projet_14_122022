@@ -11,6 +11,7 @@ import arrowImg from "./../Assets/img/angle-arrow-down.png";
 import states from "../Assets/stateData";
 import departement from "../Assets/departementData";
 import DatePicker from "../Components/DatePicker";
+import { sortEmployee } from "../Features/editArrayContent.slice";
 
 const Home = () => {
   const [error, setError] = useState(false);
@@ -22,7 +23,13 @@ const Home = () => {
       <div className="home">
         <div className="home__header">
           <h1 className="home__header--title">HRnet</h1>
-          <NavLink className="home__header--nav" to="/employee">
+          <NavLink
+            className="home__header--nav"
+            to="/employee"
+            onClick={(e) => {
+              dispatch(sortEmployee("columnFirst"));
+            }}
+          >
             View Current Employees
           </NavLink>
         </div>
