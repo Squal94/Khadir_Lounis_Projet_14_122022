@@ -8,12 +8,34 @@ import {
 
 const Pagination = () => {
   const dispatch = useDispatch();
+  const prevQueryselector = document.querySelector(
+    ".paginationContainer__element__btn--prev"
+  );
+  const nextQueryselector = document.querySelector(
+    ".paginationContainer__element__btn--next"
+  );
   const dataLength = useSelector((state) => state.employee.data);
   const currentfirstItem = useSelector((state) => state.employee.firstItem);
   const currentLastItem = useSelector((state) => state.employee.LastItem);
   const totalPages = useSelector((state) => state.employee.totalPages);
   const currentPage = useSelector((state) => state.employee.numberPage);
+  console.log(totalPages);
   console.log(currentPage);
+
+  if (prevQueryselector) {
+    if (currentPage !== 1) {
+      prevQueryselector.classList.add("activeBtn");
+    } else {
+      prevQueryselector.classList.remove("activeBtn");
+    }
+  }
+  if (nextQueryselector) {
+    if (currentPage !== totalPages) {
+      nextQueryselector.classList.add("activeBtn");
+    } else {
+      nextQueryselector.classList.remove("activeBtn");
+    }
+  }
 
   // Pagination spread variables
   const pageNumberLimit = 5;
@@ -74,6 +96,7 @@ const Pagination = () => {
     setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
     setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
   }
+
   return (
     <div className="paginationContainer">
       <div className="paginationContainer__element">
