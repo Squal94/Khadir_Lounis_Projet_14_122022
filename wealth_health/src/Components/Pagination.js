@@ -78,8 +78,8 @@ const Pagination = () => {
     <div className="paginationContainer">
       <div className="paginationContainer__element">
         <p className="paginationContainer__element--value">
-          Showing {currentfirstItem} to {currentLastItem} of {dataLength.length}{" "}
-          entries
+          Showing {currentfirstItem + 1} to {currentLastItem} of{" "}
+          {dataLength.length} entries
         </p>
         <div className="paginationContainer__element__btn">
           <p

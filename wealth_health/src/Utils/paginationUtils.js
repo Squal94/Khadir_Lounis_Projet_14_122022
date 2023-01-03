@@ -11,7 +11,8 @@ function paginationFunc(data, pageEntrie) {
     data.firstItem =
       data.currentnumberAffichage * data.numberPage -
       data.currentnumberAffichage;
-    data.LastItem = data.firstItem + data.borderValue;
+    data.LastItem = data.data.length;
+    // data.LastItem = data.firstItem + data.borderValue;
   }
 }
 
