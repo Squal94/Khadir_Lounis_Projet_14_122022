@@ -15,15 +15,12 @@ const Employee = () => {
         <NumberLine />
         <SearchArray />
       </div>
-      <ArrayEmployee />
+      <div className="EmployeeContainer__table">
+        <ArrayEmployee />
+      </div>
       <div className="EmployeeContainer__pagination">
         <Pagination />
       </div>
-      {/* <SelectItem
-        arrayProps={departement}
-        selectImg={arrowImg}
-        selectId="departement"
-      /> */}
     </div>
   );
 };

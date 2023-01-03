@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column nowrap;
   &__element {
-    width: 1200px;
+    width: 1240px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -19,7 +19,6 @@
         align-items: center;
         justify-content: center;
         padding: 0;
-
         margin: 0px 15px;
         &--item {
           display: flex;
@@ -33,6 +32,7 @@
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
+      justify-content: space-between;
     }
   }
   &--home {
