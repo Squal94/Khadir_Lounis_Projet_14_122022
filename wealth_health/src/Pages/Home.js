@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import dataEmployee from "./../Assets/Data.json";
-import ModalSubmit from "./../Components/ModalSubmit";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import dataEmployee from "./../Assets/Data.json";
+import departement from "../Assets/departementData";
+import states from "../Assets/stateData";
+import arrowImg from "./../Assets/img/angle-arrow-down.png";
+import ModalSubmit from "./../Components/ModalSubmit";
+import DatePicker from "../Components/DatePicker";
 import { newEmployee } from "./../Features/editArrayContent.slice";
 import { saveEmployee } from "./../Utils/functionUtils";
 import { open } from "./../Features/modal.slice";
 import { SelectItem } from "@squal94/librairyselectprojet14";
-import arrowImg from "./../Assets/img/angle-arrow-down.png";
-import states from "../Assets/stateData";
-import departement from "../Assets/departementData";
-import DatePicker from "../Components/DatePicker";
 import { sortEmployee } from "../Features/editArrayContent.slice";
 
 const Home = () => {
@@ -49,7 +49,6 @@ const Home = () => {
                 type="text"
                 id="firstName"
                 placeholder="Eric"
-                //   ref={firstName}
                 required
               />
             </div>
@@ -60,31 +59,14 @@ const Home = () => {
                 type="text"
                 id="lastName"
                 placeholder="Durant"
-                //   ref={LastName}
                 required
               />
             </div>
             <div className="home__form__birthday">
-              {/* <label className="inputLabel">Date of Birth</label> */}
               <DatePicker title={"Date of Birth"} />
-              {/* <input
-                className="inputTexte"
-                type="date"
-                id="birthday"
-                //   ref={birthday}
-                required
-              /> */}
             </div>
             <div className="home__form__beginning">
-              {/* <label className="inputLabel">Start Date</label> */}
               <DatePicker title={"Start Date"} />
-              {/* <input
-                className="inputTexte"
-                type="date"
-                id="beginning"
-                //   ref={beginning}
-                required
-              /> */}
             </div>
             <fieldset>
               <legend className="inputLabel">Address</legend>
@@ -95,7 +77,6 @@ const Home = () => {
                   type="text"
                   id="street"
                   placeholder="19 boulvard de la concorde"
-                  //   ref={street}
                   required
                 />
               </div>
@@ -106,7 +87,6 @@ const Home = () => {
                   type="text"
                   id="city"
                   placeholder="Paris"
-                  //   ref={city}
                   required
                 />
               </div>
@@ -127,7 +107,6 @@ const Home = () => {
                   id="zipCode"
                   min="0"
                   max="100"
-                  //   ref={zipCode}
                   required
                 />
               </div>

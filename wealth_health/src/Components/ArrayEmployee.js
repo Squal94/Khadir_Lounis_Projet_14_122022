@@ -11,11 +11,9 @@ const ArrayEmployee = () => {
   const dataStoreEmployee = useSelector(
     (state) => state.employee.filterEmployees
   );
-  // console.log(numberLine, dataLength);
   arrowToogle(arrowSelector);
 
   return (
-    // <div className="arrayContainer">
     <table>
       <thead>
         <tr>
@@ -140,7 +138,6 @@ const ArrayEmployee = () => {
         })}
       </tbody>
     </table>
-    // </div>
   );
 };
 
