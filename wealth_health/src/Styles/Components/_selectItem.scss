@@ -13,10 +13,7 @@
       background-color: #f6f6f6;
       border: 1px solid #c5c5c5;
       border-radius: 3px;
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: space-between;
+      @include rowCenterBetween;
       cursor: pointer;
       &:hover {
         background-color: #e6e6e6;

@@ -1,14 +1,9 @@
 .EmployeeContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
+  @include columnCenter;
 
   &__option {
     width: 1240px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    @include rowCenterBetween;
   }
   &__pagination {
     margin: 0 0 20px 0;

@@ -2,10 +2,7 @@
   width: 300px;
   margin: 30px auto;
   &__header {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-items: center;
-    align-items: center;
+    @include columnCenter;
   }
   &__form {
     width: 100%;
@@ -14,8 +11,7 @@
     }
     &__containerSubmit {
       margin: 15px auto;
-      display: flex;
-      justify-content: center;
+      @include center;
     }
   }
 }

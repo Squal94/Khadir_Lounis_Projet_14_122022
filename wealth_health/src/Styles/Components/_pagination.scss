@@ -5,24 +5,18 @@
   border-top: 1px solid black;
   &__element {
     width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    @include rowCenterBetween;
     &--value {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include center;
     }
     &__btn {
       &--prev {
-        display: flex;
-        justify-content: center;
+        @include center;
         padding: 8px 16px;
         margin: 1px;
       }
       &--next {
-        display: flex;
-        justify-content: center;
+        @include center;
         padding: 8px 16px;
         margin: 1px;
       }
@@ -34,11 +28,8 @@
         padding: 0;
         margin: 0px 15px;
         &--item {
-          display: flex;
-          justify-content: center;
+          @include center;
           padding: 8px 16px;
-          // border: 0.5px solid black;
-          // background: linear-gradient(to bottom, #fdfdfd, #dadada);
           margin: 1px;
         }
         &--item:hover {
@@ -47,16 +38,11 @@
           color: white;
         }
       }
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: space-between;
+      @include rowCenterBetween;
     }
   }
   &--home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center;
   }
 }
 

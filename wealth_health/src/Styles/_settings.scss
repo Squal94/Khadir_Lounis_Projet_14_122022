@@ -3,3 +3,38 @@ body {
   font-size: 0.9em;
   font-weight: 500;
 }
+
+// Mixin
+
+@mixin columnCenter {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin rowCenter {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin rowCenterBetween {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin rowCenter {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

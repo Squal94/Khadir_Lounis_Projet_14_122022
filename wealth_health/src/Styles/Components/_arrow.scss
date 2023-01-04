@@ -1,7 +1,5 @@
 .arrowContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  @include columnCenter;
   margin: 0 5px;
   z-index: -2;
   &__up {
