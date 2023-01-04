@@ -13,6 +13,12 @@ import { open } from "./../Features/modal.slice";
 import { SelectItem } from "@squal94/librairyselectprojet14";
 import { sortEmployee } from "../Features/editArrayContent.slice";
 
+/**
+ * Const Home
+ * Const HomeReact Component Created to contain and complete pages Home with the form
+ * for new employees and connect dispatch actions with the store.
+ */
+
 const Home = () => {
   const [error, setError] = useState(false);
   const openModal = useSelector((state) => state.modal.isOpened);

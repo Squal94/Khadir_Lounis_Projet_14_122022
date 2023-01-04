@@ -4,6 +4,12 @@ import NumberLine from "../Components/NumberLine";
 import Pagination from "../Components/Pagination";
 import SearchArray from "../Components/SearchArray";
 
+/**
+ * Const Employee
+ * @param {target} e.target if input searchId focus.
+ * Const Employee React Component Created to contain and complete pages Employee.
+ */
+
 const Employee = () => {
   return (
     <div className="EmployeeContainer">
