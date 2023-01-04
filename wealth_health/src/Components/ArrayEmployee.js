@@ -2,10 +2,19 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sortEmployee } from "../Features/editArrayContent.slice";
 import { arrowToogle } from "./../Utils/functionUtils";
-
 import Arrow from "./Arrow";
 
+/**
+ * Const ArrayEmployee
+ * @param {dataStoreEmployee} dataStoreEmployee use hook useSelector like props
+ * ArrayEmployee uses the table state values in the desired format
+ */
+
 const ArrayEmployee = () => {
+  /**
+   * useSelector and useDispatch
+   * useSelector is called every time the component is rendered and every time an action is dispatch.  * Each useSelector call creates a new subscription to the Redux store
+   */
   const dispatch = useDispatch();
   const arrowSelector = useSelector((state) => state.employee.arrow);
   const dataStoreEmployee = useSelector(
@@ -121,6 +130,10 @@ const ArrayEmployee = () => {
       </thead>
       <tbody>
         {dataStoreEmployee.map((employee, key) => {
+          /**
+           * dataStoreEmployee.map
+           * Dynamically filled with state data (useSelector) the table has each change of it.
+           */
           return (
             <tr key={key}>
               <td>{employee.firstName}</td>
