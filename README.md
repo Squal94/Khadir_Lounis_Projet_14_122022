@@ -6,17 +6,17 @@
 
 You work for the technology department of a major financial company, WealthHealth.
 
-This company uses an internal web application called HRnet, which manages employee files.
-The application is old and uses jQuery side front end, resulting in considerable bugs and
+This company uses an internal web application called HRnet, which manages employee files.  
+The application is old and uses jQuery side front end, resulting in considerable bugs and  
 an increase in internal complaints.
-Your development team want to migrate jquery to react application .
+Your development team want to migrate jquery to react application.
 
 ## 2. Convert jquery component to react component
 
 I chose to convert the component select, you can find the repository
 and the operating documents on this repository :
 
-[React Component npm package]("https://github.com/Squal94/Khadir_Lounis_Projet_14_122022_LibrarySelect.git")
+[React Component npm package](https://github.com/Squal94/Khadir_Lounis_Projet_14_122022_LibrarySelect.git)
 
 ## 3.Install packages and library for this application
 
