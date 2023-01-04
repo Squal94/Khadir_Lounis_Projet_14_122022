@@ -125,7 +125,6 @@ const ArrayEmployee = () => {
               Zip Code <Arrow />
             </div>
           </th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -145,7 +144,6 @@ const ArrayEmployee = () => {
               <td>{employee.city}</td>
               <td>{employee.state}</td>
               <td>{employee.zipCode}</td>
-              <td>bouton</td>
             </tr>
           );
         })}

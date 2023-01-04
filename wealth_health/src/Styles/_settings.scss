@@ -27,11 +27,11 @@ body {
   align-items: center;
 }
 
-@mixin rowCenter {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-}
+// @mixin rowCenter {
+//   display: flex;
+//   flex-flow: row nowrap;
+//   align-items: center;
+// }
 
 @mixin center {
   display: flex;
