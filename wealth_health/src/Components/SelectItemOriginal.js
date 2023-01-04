@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import arrowDown from "./../Assets/img/angle-arrow-down.png";
 
-const SelectItem = ({ props }) => {
+const SelectItemOriginal = ({ props }) => {
   const [option, setOption] = useState("");
   const [selected, setSelected] = useState(false);
 
@@ -15,8 +15,21 @@ const SelectItem = ({ props }) => {
     list.classList.toggle("hide");
     toggleArrow();
   };
+  const refOutside = useRef();
+
+  useEffect(() => {
+    document.addEventListener("mousedown", (event) => {
+      if (!refOutside.current.contains(event.target)) {
+        const list = document.querySelector(".selectItem__list");
+        list.classList.add("hide");
+        const arrow = document.querySelector(".selectItem__field--img");
+        arrow.classList.remove("rotate");
+      }
+    });
+  });
+
   return (
-    <div className="selectItem">
+    <div className="selectItem" ref={refOutside}>
       <div
         id="selectField"
         className="selectItem__field"
@@ -54,4 +67,4 @@ const SelectItem = ({ props }) => {
   );
 };
 
-export default SelectItem;
+export { SelectItemOriginal };

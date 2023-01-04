@@ -11,6 +11,7 @@ import arrowImg from "./../Assets/img/angle-arrow-down.png";
 import states from "../Assets/stateData";
 import departement from "../Assets/departementData";
 import DatePicker from "../Components/DatePicker";
+import { SelectItemOriginal } from "./../Components/SelectItemOriginal";
 import { sortEmployee } from "../Features/editArrayContent.slice";
 
 const Home = () => {
@@ -118,6 +119,7 @@ const Home = () => {
                   selectClass="state"
                 />
               </div>
+              <div></div>
               <div className="home__form__zipCode">
                 <label className="inputLabel">Zip Code</label>
                 <input
@@ -150,6 +152,7 @@ const Home = () => {
               />
             </div>
           </form>
+          <SelectItemOriginal props={departement} />
         </div>
       </div>
       {openModal === true && <ModalSubmit />}
