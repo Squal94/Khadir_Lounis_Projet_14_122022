@@ -18,14 +18,16 @@ const SelectItemOriginal = ({ props }) => {
   const refOutside = useRef();
 
   useEffect(() => {
-    document.addEventListener("mousedown", (event) => {
+    let handler = (event) => {
       if (!refOutside.current.contains(event.target)) {
         const list = document.querySelector(".selectItem__list");
         list.classList.add("hide");
         const arrow = document.querySelector(".selectItem__field--img");
         arrow.classList.remove("rotate");
       }
-    });
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   });
 
   return (

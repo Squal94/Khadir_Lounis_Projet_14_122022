@@ -6,12 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { newEmployee } from "./../Features/editArrayContent.slice";
 import { saveEmployee } from "./../Utils/functionUtils";
 import { open } from "./../Features/modal.slice";
-import { SelectItem } from "@squal94/selectprojet14v2";
+import { SelectItem } from "@squal94/librairyselectprojet14";
 import arrowImg from "./../Assets/img/angle-arrow-down.png";
 import states from "../Assets/stateData";
 import departement from "../Assets/departementData";
 import DatePicker from "../Components/DatePicker";
-import { SelectItemOriginal } from "./../Components/SelectItemOriginal";
 import { sortEmployee } from "../Features/editArrayContent.slice";
 
 const Home = () => {
@@ -152,7 +151,6 @@ const Home = () => {
               />
             </div>
           </form>
-          <SelectItemOriginal props={departement} />
         </div>
       </div>
       {openModal === true && <ModalSubmit />}
