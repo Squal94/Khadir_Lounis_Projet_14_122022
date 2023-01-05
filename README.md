@@ -56,7 +56,7 @@ And happy navigation.
 
 I created a stylized version in addition to the classic version to possibly upgrade the Hrnet.
 
-[Styled version]("https://github.com/Squal94/Khadir_Lounis_Projet_14_122022_LibrarySelect.git")
+[Styled version](https://github.com/Squal94/Khadir_Lounis_Projet_14_122022_styled.git)
 
 ## 7.Something Missing or have an idea ?
 
