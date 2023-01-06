@@ -14,19 +14,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   -webkit-appearance: none;
   width: 100%;
+  cursor: pointer;
 }
-
-// input[type="date"]:focus:required:invalid::-webkit-datetime-edit {
-//   color: black;
-//   content: "";
-// }
-
-// input[type="date"]::-webkit-inner-spin-button,
-// input[type="date"]::-webkit-calendar-picker-indicator {
-//   opacity: 0;
-//   -webkit-appearance: none;
-// }
-
-// input[type="date"]::before {
-//   content: attr(placeholder) "";
-// }

@@ -20,24 +20,32 @@ and the operating documents on this repository :
 
 ## 3.Install packages and library for this application
 
-For different libraries you must :
+### Installation
 
-    1. install project with npm  :
+Clone repository
 
-    `npm install `
+```
+git clone https://github.com/Squal94/Khadir_Lounis_Projet_14_122022.git
+```
 
-    2. libary use for the project :
+Install packages and library
 
-    - @squal94/librairyselectprojet14
-    - react
-    - react-dom
-    - react-redux
-    - reduxjs/toolkit
-    - react-router-dom
-    - react-scripts
-    - sass
+```
+npm i
+```
 
-      This is all the package and library use for the proper operation of this project.
+### Dependencies and components
+
+- [@squal94/selectcomponent14v7 "^1.0.0"](https://github.com/Squal94/Khadir_Lounis_Projet_14_122022_LibrarySelectv2.git)
+- [react "^18.2.0"](https://github.com/facebook/react/blob/main/CHANGELOG.md#1820-june-14-2022)
+- [react-dom "^18.2.0"](https://github.com/facebook/react)
+- [react-redux "^8.0.5"](https://github.com/reduxjs/react-redux)
+- [reduxjs/toolkit "^1.9.1"](https://github.com/reduxjs/redux-toolkit)
+- [react-router-dom "^6.4.4"](https://github.com/remix-run/react-router)
+- [react-scripts "5.0.1"](https://github.com/facebook/create-react-app)
+- [sass "^1.56.1"](https://github.com/sass/dart-sass)
+
+This is all the package and library use for the proper operation of this project.
 
 ## 4.Start the project
 
@@ -50,7 +58,11 @@ And start the application with the code :
 
 And happy navigation.
 
-## 5.Précision
+## 5.Build
+
+Npm run build Succes .
+
+![](./wealth_health/src/Assets/img/CompiledSucess.png)
 
 ## 6.Styled version
 
