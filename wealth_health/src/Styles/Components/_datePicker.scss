@@ -3,6 +3,7 @@
   flex-flow: column nowrap;
   &__input {
     width: 172px;
+    cursor: pointer;
   }
 }
 
@@ -10,9 +11,9 @@ input[type="date"]:required:invalid::-webkit-datetime-edit {
   color: transparent;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
-  -webkit-appearance: none;
-  width: 100%;
-  cursor: pointer;
-}
+// input[type="date"]::-webkit-calendar-picker-indicator {
+//   opacity: 0;
+//   -webkit-appearance: none;
+//   width: 100%;
+//   cursor: pointer;
+// }
