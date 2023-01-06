@@ -13,7 +13,8 @@ import Arrow from "./Arrow";
 const ArrayEmployee = () => {
   /**
    * useSelector and useDispatch
-   * useSelector is called every time the component is rendered and every time an action is dispatch.  * Each useSelector call creates a new subscription to the Redux store
+   * useSelector is called every time the component is rendered and every time an action is dispatch.
+   * Each useSelector call creates a new subscription to the Redux store
    */
   const dispatch = useDispatch();
   const arrowSelector = useSelector((state) => state.employee.arrow);
