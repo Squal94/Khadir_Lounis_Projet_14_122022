@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import dataEmployee from "./../Assets/Data.json";
@@ -20,7 +20,6 @@ import { sortEmployee } from "../Features/editArrayContent.slice";
  */
 
 const Home = () => {
-  const [error, setError] = useState(false);
   const openModal = useSelector((state) => state.modal.isOpened);
   const dispatch = useDispatch();
 
@@ -49,7 +48,9 @@ const Home = () => {
             }}
           >
             <div className="home__form__firstName">
-              <label className="inputLabel">First Name</label>
+              <label htmlFor="firstName" className="inputLabel">
+                First Name
+              </label>
               <input
                 className="inputTexte"
                 type="text"
@@ -59,7 +60,9 @@ const Home = () => {
               />
             </div>
             <div className="home__form__lastName">
-              <label className="inputLabel">Last Name</label>
+              <label htmlFor="lastName" className="inputLabel">
+                Last Name
+              </label>
               <input
                 className="inputTexte"
                 type="text"
@@ -77,7 +80,9 @@ const Home = () => {
             <fieldset>
               <legend className="inputLabel">Address</legend>
               <div className="home__form__street">
-                <label className="inputLabel">Street</label>
+                <label htmlFor="street" className="inputLabel">
+                  Street
+                </label>
                 <input
                   className="inputTexte"
                   type="text"
@@ -87,7 +92,9 @@ const Home = () => {
                 />
               </div>
               <div className="home__form__city">
-                <label className="inputLabel">City</label>
+                <label htmlFor="city" className="inputLabel">
+                  City
+                </label>
                 <input
                   className="inputTexte"
                   type="text"
@@ -106,7 +113,9 @@ const Home = () => {
               </div>
               <div></div>
               <div className="home__form__zipCode">
-                <label className="inputLabel">Zip Code</label>
+                <label htmlFor="zipCode" className="inputLabel">
+                  Zip Code
+                </label>
                 <input
                   className="inputTexte"
                   type="number"
@@ -125,9 +134,6 @@ const Home = () => {
                 selectClass="departement"
               />
             </div>
-            <span className="formContainer--error">
-              {error && "Email ou mot de passe incorrect"}
-            </span>
             <div className="home__form__containerSubmit">
               <input
                 type="submit"

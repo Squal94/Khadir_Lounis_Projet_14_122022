@@ -16,7 +16,12 @@ const DatePicker = (props) => {
 
   return (
     <div className="datePicker">
-      <label className="datePicker__label inputLabel">{dateTitle}</label>
+      <label
+        htmlFor={dateTitle.replace(/ /g, "")}
+        className="datePicker__label inputLabel"
+      >
+        {dateTitle}
+      </label>
       <input
         placeholder=" "
         className="datePicker__input"
